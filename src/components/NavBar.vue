@@ -21,6 +21,10 @@
         </li>
       </ul>
 
+      <a href="/dashboard" class="nav-portal" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.1"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.1"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.1"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.1"/></svg>
+        Client Portal
+      </a>
       <a href="#booking" class="nav-cta" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" @click="menuOpen=false">
         Book a Call
       </a>
@@ -72,6 +76,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease-out-expo); }
 .nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { width: 100%; }
+.nav-portal { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: rgba(247,242,232,0.6); background: rgba(247,242,232,0.05); border: 1px solid rgba(247,242,232,0.12); padding: 10px 18px; white-space: nowrap; display: flex; align-items: center; gap: 7px; transition: color 0.2s, border-color 0.2s; }
+.nav-portal:hover { color: var(--gold); border-color: rgba(201,168,76,0.3); }
 .nav-cta { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--forest-deep); background: var(--gold); padding: 12px 22px; white-space: nowrap; transition: background 0.3s, transform 0.2s var(--spring); }
 .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; margin-left: auto; }
