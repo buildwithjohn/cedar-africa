@@ -106,7 +106,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useReveal } from '../composables/useReveal.js'
 defineEmits(['hover', 'unhover'])
 
 const mapEl = ref(null)
@@ -114,6 +115,7 @@ const activeTab = ref('Satellite')
 const selectedProject = ref('Plot A-23')
 const mapTabs = ['Satellite', 'Street', 'Terrain', 'Drone']
 let map = null
+let mapCleanup = null
 
 const projects = [
   { name: 'Plot A-23', location: 'Lekki Phase 1, Lagos', progress: 68, status: 'Building', statusClass: 'status-active', color: '#C9A84C', lat: 6.4352, lng: 3.4737 },
@@ -133,11 +135,9 @@ const flyTo = (project) => {
   if (map) map.flyTo([project.lat, project.lng], 15, { duration: 1.5 })
 }
 
+useReveal('.mapplatform .reveal')
+
 onMounted(async () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.05 })
-  document.querySelectorAll('.mapplatform .reveal').forEach(el => observer.observe(el))
 
   const L = (await import('leaflet')).default
   map = L.map(mapEl.value, {
@@ -164,6 +164,7 @@ onMounted(async () => {
   L.polygon(poly, { color:'#4ECDC4', weight:1.5, fillColor:'#4ECDC4', fillOpacity:0.06, dashArray:'6 4' }).addTo(map)
   L.polygon(poly.map(c => [c[0]+0.0002, c[1]+0.0002]), { color:'#C9A84C', weight:1.5, fillColor:'#C9A84C', fillOpacity:0.04, dashArray:'4 6' }).addTo(map)
 })
+onUnmounted(() => { if (map) { map.remove(); map = null } })
 </script>
 
 <style scoped>

@@ -64,12 +64,7 @@ const steps = [
   { icon: '🏠', title: 'Handover & Management', duration: 'Final Phase', desc: 'We walk you through your completed property virtually. Then we manage it — or hand you the keys at your arrival.' },
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.1 })
-  document.querySelectorAll('.process .reveal').forEach(el => observer.observe(el))
-})
+useReveal('.process .reveal')
 </script>
 
 <style scoped>
