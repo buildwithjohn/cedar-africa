@@ -1,9 +1,8 @@
 <template>
-  <div id="app" :data-theme="isDark ? 'dark' : 'light'">
+  <div id="app">
     <div class="cursor" ref="cursorEl" :class="{ hovering: isHovering, active: cursorActive }"></div>
     <div class="cursor-follower" ref="followerEl" :class="{ hovering: isHovering, active: cursorActive }"></div>
 
-    <!-- Page loader -->
     <div class="loader" :class="{ loaded: pageLoaded }">
       <div class="loader-inner">
         <svg width="44" height="44" viewBox="0 0 32 32" fill="none">
@@ -17,7 +16,7 @@
       </div>
     </div>
 
-    <NavBar @hover="isHovering=true" @unhover="isHovering=false" :isDark="isDark" @toggleTheme="toggle" />
+    <NavBar            @hover="isHovering=true" @unhover="isHovering=false" />
     <HeroSection       @hover="isHovering=true" @unhover="isHovering=false" />
     <TechnologySection @hover="isHovering=true" @unhover="isHovering=false" />
     <MapPlatformSection @hover="isHovering=true" @unhover="isHovering=false" />
@@ -32,7 +31,6 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useTheme } from './composables/useTheme.js'
 import NavBar             from './components/NavBar.vue'
 import HeroSection        from './components/HeroSection.vue'
 import TechnologySection  from './components/TechnologySection.vue'
@@ -44,8 +42,6 @@ import TestimonialsSection from './components/TestimonialsSection.vue'
 import BookingSection     from './components/BookingSection.vue'
 import FooterSection      from './components/FooterSection.vue'
 
-const { isDark, toggle, init } = useTheme()
-
 const cursorEl     = ref(null)
 const followerEl   = ref(null)
 const isHovering   = ref(false)
@@ -55,8 +51,7 @@ const loadProgress = ref(0)
 
 let rafId = null
 let followerX = -100, followerY = -100
-let targetX = -100, targetY = -100
-
+let targetX   = -100, targetY   = -100
 const lerp = (a, b, t) => a + (b - a) * t
 
 const animateFollower = () => {
@@ -82,7 +77,6 @@ const onMouseMove = (e) => {
 }
 
 onMounted(() => {
-  init()
   let prog = 0
   const interval = setInterval(() => {
     prog += Math.random() * 14
@@ -96,7 +90,6 @@ onMounted(() => {
     window.addEventListener('mousemove', onMouseMove, { passive: true })
   }
 })
-
 onUnmounted(() => {
   window.removeEventListener('mousemove', onMouseMove)
   if (rafId) cancelAnimationFrame(rafId)
@@ -109,8 +102,8 @@ onUnmounted(() => {
 .loader-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .loader-inner svg { animation: loaderPulse 1.4s ease-in-out infinite; }
 @keyframes loaderPulse { 0%,100% { opacity:0.5; transform:scale(0.94); } 50% { opacity:1; transform:scale(1.04); } }
-.loader-wordmark { font-family: 'Syne',sans-serif; font-size: 1rem; font-weight: 700; color: #F7F2E8; letter-spacing: 0.08em; }
+.loader-wordmark { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--cream); letter-spacing: 0.08em; }
 .loader-bar { width: 180px; height: 1px; background: rgba(247,242,232,0.08); overflow: hidden; }
-.loader-progress { height: 100%; background: linear-gradient(90deg, #C9A84C, #4ECDC4); transition: width 0.25s; }
-.loader-sub { font-family: 'Syne',sans-serif; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,242,232,0.22); }
+.loader-progress { height: 100%; background: linear-gradient(90deg, var(--gold), var(--tech-blue)); transition: width 0.25s; }
+.loader-sub { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,242,232,0.22); }
 </style>
