@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <div class="cursor" :style="{ left: cursor.x + 'px', top: cursor.y + 'px' }" :class="{ hovering: isHovering }"></div>
-    <div class="cursor-follower" :style="{ left: follower.x + 'px', top: follower.y + 'px' }" :class="{ hovering: isHovering }"></div>
+    <!-- Custom cursor — desktop only, hidden on touch devices -->
+    <div class="cursor" ref="cursorEl" :class="{ hovering: isHovering }"></div>
+    <div class="cursor-follower" ref="followerEl" :class="{ hovering: isHovering }"></div>
 
+    <!-- Page loader -->
     <div class="loader" :class="{ loaded: pageLoaded }">
       <div class="loader-inner">
         <svg width="44" height="44" viewBox="0 0 32 32" fill="none">
@@ -30,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import TechnologySection from './components/TechnologySection.vue'
@@ -42,30 +44,57 @@ import TestimonialsSection from './components/TestimonialsSection.vue'
 import BookingSection from './components/BookingSection.vue'
 import FooterSection from './components/FooterSection.vue'
 
-const cursor = ref({ x: -100, y: -100 })
-const follower = ref({ x: -100, y: -100 })
+const cursorEl = ref(null)
+const followerEl = ref(null)
 const isHovering = ref(false)
 const pageLoaded = ref(false)
 const loadProgress = ref(0)
 
+let animFrame = null
+let fx = -100, fy = -100
+
+const onMouseMove = (e) => {
+  if (cursorEl.value) {
+    cursorEl.value.style.left = e.clientX + 'px'
+    cursorEl.value.style.top = e.clientY + 'px'
+  }
+  const lerp = (a, b, t) => a + (b - a) * t
+  const animate = () => {
+    fx = lerp(fx, e.clientX, 0.1)
+    fy = lerp(fy, e.clientY, 0.1)
+    if (followerEl.value) {
+      followerEl.value.style.left = fx + 'px'
+      followerEl.value.style.top = fy + 'px'
+    }
+  }
+  cancelAnimationFrame(animFrame)
+  animFrame = requestAnimationFrame(animate)
+}
+
 onMounted(() => {
+  // Loader
   let prog = 0
   const interval = setInterval(() => {
     prog += Math.random() * 12
     loadProgress.value = Math.min(prog, 95)
     if (prog >= 95) {
       clearInterval(interval)
-      setTimeout(() => { loadProgress.value = 100; setTimeout(() => { pageLoaded.value = true }, 500) }, 300)
+      setTimeout(() => {
+        loadProgress.value = 100
+        setTimeout(() => { pageLoaded.value = true }, 500)
+      }, 300)
     }
   }, 80)
 
-  let fx = -100, fy = -100
-  window.addEventListener('mousemove', (e) => {
-    cursor.value = { x: e.clientX, y: e.clientY }
-    const lerp = (a, b, t) => a + (b - a) * t
-    const animate = () => { fx = lerp(fx, e.clientX, 0.1); fy = lerp(fy, e.clientY, 0.1); follower.value = { x: fx, y: fy } }
-    requestAnimationFrame(animate)
-  })
+  // Only add cursor on non-touch devices
+  if (window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('mousemove', onMouseMove)
+  }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('mousemove', onMouseMove)
+  cancelAnimationFrame(animFrame)
 })
 </script>
 

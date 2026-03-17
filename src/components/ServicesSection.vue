@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { useReveal } from '../composables/useReveal.js'
 defineEmits(['hover', 'unhover'])
 
 const services = [
@@ -58,12 +58,7 @@ const services = [
     features: ['C of O processing', 'Geo-verified deed of assignment', 'Survey plan registration', 'Anti-fraud title check'] },
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.08 })
-  document.querySelectorAll('.services .reveal').forEach(el => observer.observe(el))
-})
+useReveal('.services .reveal')
 </script>
 
 <style scoped>

@@ -106,7 +106,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { useReveal } from '../composables/useReveal.js'
 defineEmits(['hover', 'unhover'])
 
 const techStats = [
@@ -116,12 +116,7 @@ const techStats = [
   { val: '100%', label: 'Plots geo-referenced before sale' },
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.1 })
-  document.querySelectorAll('.tech .reveal').forEach(el => observer.observe(el))
-})
+useReveal('.technology .reveal')
 </script>
 
 <style scoped>

@@ -216,12 +216,7 @@ const submitBooking = () => {
   submitted.value = true
 }
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.1 })
-  document.querySelectorAll('.booking .reveal').forEach(el => observer.observe(el))
-})
+useReveal('.booking .reveal')
 </script>
 
 <style scoped>
