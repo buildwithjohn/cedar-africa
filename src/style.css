@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 
 :root {
   --forest: #1C3A2B;
@@ -16,11 +15,9 @@
   --muted: #6B7B6E;
   --tech-blue: #4ECDC4;
   --tech-blue-dim: rgba(78,205,196,0.12);
-
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'DM Sans', sans-serif;
   --font-ui: 'Syne', sans-serif;
-
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -28,10 +25,21 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--cream); color: var(--charcoal); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+body { font-family: var(--font-body); background: var(--cream); color: var(--charcoal); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-.cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), background 0.3s; mix-blend-mode: multiply; }
-.cursor-follower { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), opacity 0.3s; opacity: 0.6; }
+/* Custom cursor — desktop only */
+@media (pointer: fine) {
+  body { cursor: none; }
+  button, a { cursor: none; }
+  .cursor { display: block; }
+  .cursor-follower { display: block; }
+}
+@media (pointer: coarse) {
+  .cursor, .cursor-follower { display: none !important; }
+}
+
+.cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), background 0.3s; mix-blend-mode: multiply; display: none; }
+.cursor-follower { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), opacity 0.3s; opacity: 0.6; display: none; }
 .cursor.hovering { width: 6px; height: 6px; background: var(--forest); }
 .cursor-follower.hovering { width: 56px; height: 56px; opacity: 0.3; }
 
@@ -50,4 +58,6 @@ body { font-family: var(--font-body); background: var(--cream); color: var(--cha
 .reveal-delay-5 { transition-delay: 0.5s; }
 .reveal-delay-6 { transition-delay: 0.6s; }
 
-button, a { cursor: none; }
+/* Leaflet overrides — ensure maps display correctly */
+.leaflet-container { background: #0d1f18; }
+.leaflet-tile-pane { filter: brightness(0.9); }

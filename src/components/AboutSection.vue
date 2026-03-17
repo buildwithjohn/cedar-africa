@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { useReveal } from '../composables/useReveal.js'
 
 const values = [
   { icon: '🛡', title: 'Trusted Custodians', desc: 'We hold your investment with care and full accountability.' },
@@ -57,12 +57,7 @@ const values = [
   { icon: '🌍', title: 'Diaspora-First', desc: 'Built for how you live — remote, global, and goal-oriented.' },
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-  }, { threshold: 0.15 })
-  document.querySelectorAll('.about .reveal').forEach(el => observer.observe(el))
-})
+useReveal('.about .reveal')
 </script>
 
 <style scoped>
