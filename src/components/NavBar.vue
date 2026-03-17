@@ -21,9 +21,13 @@
         </li>
       </ul>
 
-      <a href="#booking" class="nav-cta" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" @click="menuOpen=false">
-        Book a Call
-      </a>
+      <BookingModal>
+        <template #default="{ open }">
+          <button class="nav-cta" @click="open(); menuOpen=false" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+            Book a Call
+          </button>
+        </template>
+      </BookingModal>
 
       <button class="hamburger" @click="menuOpen = !menuOpen" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
         <span></span><span></span><span></span>
@@ -43,6 +47,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import BookingModal from './BookingModal.vue'
 defineEmits(['hover', 'unhover'])
 const isScrolled = ref(false)
 const menuOpen = ref(false)
