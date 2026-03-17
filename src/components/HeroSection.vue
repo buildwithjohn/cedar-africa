@@ -183,6 +183,33 @@ onUnmounted(() => {
 @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
 .scroll-cue span { font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,242,232,0.3); writing-mode: vertical-rl; }
 
-@media (max-width: 1060px) { .hero { grid-template-columns: 1fr; padding: 120px 40px 80px; } .hero-badges { left: 40px; } .scroll-cue { display: none; } }
-@media (max-width: 600px) { .hero { padding: 100px 20px 60px; } .hero-badges { left: 20px; top: 95px; } .hero-title { font-size: 2.6rem; } }
+@media (max-width: 1060px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 80px 40px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  /* Take badges out of absolute flow — stack naturally */
+  .hero-badges {
+    position: static;
+    top: auto; left: auto;
+    margin-top: 72px; /* space for fixed navbar */
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hero-content {
+    padding-top: 0;
+  }
+  .scroll-cue { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 72px 20px 60px; gap: 32px; }
+  .hero-badges { margin-top: 60px; }
+  .hero-title { font-size: 2.5rem; }
+  .tech-badge { font-size: 0.6rem; padding: 5px 10px; }
+}
 </style>
