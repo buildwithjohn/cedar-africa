@@ -116,7 +116,7 @@ const techStats = [
   { val: '100%', label: 'Plots geo-referenced before sale' },
 ]
 
-useReveal('.technology .reveal')
+useReveal('.tech .reveal')
 </script>
 
 <style scoped>

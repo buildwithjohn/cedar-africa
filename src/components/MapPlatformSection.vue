@@ -139,6 +139,7 @@ useReveal('.mapplatform .reveal')
 
 onMounted(async () => {
 
+  await import('leaflet/dist/leaflet.css')
   const L = (await import('leaflet')).default
   map = L.map(mapEl.value, {
     center: [6.4352, 3.4737],

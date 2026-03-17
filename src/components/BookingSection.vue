@@ -156,6 +156,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useReveal } from '../composables/useReveal.js'
 defineEmits(['hover', 'unhover'])
 
 const features = [

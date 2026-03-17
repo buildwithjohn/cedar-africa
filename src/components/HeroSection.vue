@@ -85,6 +85,7 @@ onMounted(async () => {
   })
 
   // Init Leaflet using ref (not id) to avoid DOM ID collision
+  await import('leaflet/dist/leaflet.css')
   const L = (await import('leaflet')).default
   if (!mapEl.value) return
 
