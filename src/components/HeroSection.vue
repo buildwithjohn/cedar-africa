@@ -28,7 +28,11 @@
           <span>Explore the Platform</span>
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
-        <a href="#booking" class="btn-ghost" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">Book a free consultation</a>
+        <BookingModal>
+          <template #default="{ open }">
+            <button class="btn-ghost" @click="open" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">Book a free consultation</button>
+          </template>
+        </BookingModal>
       </div>
     </div>
 
@@ -74,6 +78,7 @@
 
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
+import BookingModal from './BookingModal.vue'
 defineEmits(['hover', 'unhover'])
 const mapEl = ref(null)
 let mapInstance = null
