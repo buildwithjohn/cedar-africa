@@ -1,182 +1,216 @@
 <template>
-  <section class="booking-cta" id="booking">
-    <div class="bk-inner">
-      <div class="bk-left">
-        <span class="section-label reveal">Schedule a Call</span>
-        <h2 class="bk-title reveal reveal-delay-1">
+  <section class="bks" id="booking">
+    <div class="bks-inner">
+
+      <!-- Left: copy -->
+      <div class="bks-copy">
+        <span class="bks-label reveal">Schedule a Call</span>
+        <h2 class="bks-title reveal reveal-delay-1">
           Let's start building<br/><em>your future.</em>
         </h2>
-        <p class="bk-sub reveal reveal-delay-2">
-          Book a free 30-minute consultation with a Cedar Home Builder advisor. No obligation — just a clear, honest conversation about your project.
+        <p class="bks-sub reveal reveal-delay-2">
+          Book a free 30-minute consultation with a Cedar Home Builder advisor.
+          We'll map out your project, verify your plot on our live map, and give
+          you a clear cost estimate — no strings attached.
         </p>
-        <div class="bk-features reveal reveal-delay-3">
-          <div class="bkf" v-for="f in features" :key="f">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <circle cx="7.5" cy="7.5" r="6.5" stroke="var(--gold)" stroke-width="1"/>
-              <path d="M5 7.5L7 9.5L10.5 6" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/>
+
+        <ul class="bks-features reveal reveal-delay-3">
+          <li v-for="f in features" :key="f">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="var(--gold)" stroke-width="1.2"/>
+              <path d="M5 8L7 10L11 6" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
             {{ f }}
-          </div>
-        </div>
-        <div class="bk-actions reveal reveal-delay-4">
-          <BookingModal ref="modal">
-            <template #default="{ open }">
-              <button class="btn-book" @click="open" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-                <span>Book a Free Consultation</span>
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </template>
-          </BookingModal>
-          <div class="bk-alts">
-            <a href="mailto:hello@cedarhomebuilder.com" class="alt-link" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.1"/></svg>
-              hello@cedarhomebuilder.com
-            </a>
-            <a href="https://wa.me/2348100000000" class="alt-link" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8C1.5 9.1 1.8 10.1 2.3 11L1.5 14.5L5.1 13.7C6 14.2 7 14.5 8 14.5C11.6 14.5 14.5 11.6 14.5 8C14.5 4.4 11.6 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
-              WhatsApp us
-            </a>
-          </div>
+          </li>
+        </ul>
+
+        <div class="bks-contacts reveal reveal-delay-4">
+          <a href="mailto:hello@cedarhomebuilder.com" class="bks-contact" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.1"/></svg>
+            hello@cedarhomebuilder.com
+          </a>
+          <a href="https://wa.me/2348100000000" class="bks-contact" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8C1.5 9.1 1.8 10.1 2.3 11L1.5 14.5L5.1 13.7C6 14.2 7 14.5 8 14.5C11.6 14.5 14.5 11.6 14.5 8C14.5 4.4 11.6 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+            WhatsApp us
+          </a>
         </div>
       </div>
 
-      <div class="bk-right reveal reveal-delay-2">
-        <div class="bk-card">
-          <div class="bk-card-header">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <!-- Right: booking card -->
+      <div class="bks-card reveal reveal-delay-2">
+        <div class="bks-card-head">
+          <div class="bks-card-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
               <path d="M16 2L4 10V28H28V10L16 2Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
               <path d="M10 28V18H22V28" stroke="var(--gold)" stroke-width="1.5"/>
+              <path d="M16 10L10 14V20H22V14L16 10Z" fill="var(--gold)" opacity="0.3"/>
             </svg>
-            <div>
-              <strong>Project Discovery Call</strong>
-              <span>Cedar Home Builder</span>
-            </div>
           </div>
-          <div class="bk-card-meta">
-            <span>⏱ 30 minutes</span>
-            <span>📹 Video call</span>
-            <span>🆓 Free</span>
+          <div>
+            <strong>Project Discovery Call</strong>
+            <span>Cedar Home Builder</span>
           </div>
-          <ul class="bk-card-list">
-            <li>Discuss your project vision & location</li>
-            <li>Get a realistic budget estimate</li>
-            <li>Understand the full geo-tech process</li>
-            <li>Ask any question about building in Nigeria</li>
-          </ul>
-          <BookingModal ref="modal2">
-            <template #default="{ open }">
-              <button class="bk-card-btn" @click="open" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-                Select a Date & Time
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <rect x="1" y="2" width="14" height="13" rx="1" stroke="currentColor" stroke-width="1.1"/>
-                  <path d="M1 6H15M5 1V3M11 1V3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </template>
-          </BookingModal>
         </div>
+
+        <div class="bks-card-badges">
+          <span class="badge">⏱ 30 min</span>
+          <span class="badge">📹 Video call</span>
+          <span class="badge badge-free">🆓 Free</span>
+        </div>
+
+        <ul class="bks-card-list">
+          <li>Geo-map your plot in real time</li>
+          <li>Realistic build cost estimate</li>
+          <li>Full technology platform walkthrough</li>
+          <li>Ask anything about building in Nigeria</li>
+        </ul>
+
+        <BookingModal>
+          <template #default="{ open }">
+            <button class="bks-card-btn" @click="open" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+              <span>Select a Date & Time</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="2" y="2" width="14" height="14" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M2 7H16M6 1V4M12 1V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </template>
+        </BookingModal>
+
+        <p class="bks-card-note">No sign up required. Instant confirmation.</p>
       </div>
+
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal.js'
 import BookingModal from './BookingModal.vue'
 defineEmits(['hover', 'unhover'])
-useReveal('.booking-cta .reveal')
-
-const modal  = ref(null)
-const modal2 = ref(null)
+useReveal('.bks .reveal')
 
 const features = [
-  '100% free — no obligation',
-  'Speak with a senior advisor',
-  'Geo-tech platform walkthrough',
-  'Clear path to your build',
+  'Speak directly with a senior advisor',
+  'Get a live geo-referenced map demo',
+  'Receive a project cost estimate',
+  'Understand our full tech process',
 ]
 </script>
 
 <style scoped>
-.booking-cta {
+/* ── Section wrapper — sits between dark sections ── */
+.bks {
+  background: #FFFFFF;
   padding: 120px 80px;
-  background: var(--cream);
   position: relative;
 }
-.booking-cta::before {
+/* Subtle top/bottom borders to transition cleanly from dark sections */
+.bks::before, .bks::after {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0;
+  position: absolute; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-.bk-inner {
+.bks::before { top: 0;    background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.bks::after  { bottom: 0; background: linear-gradient(90deg, transparent, rgba(28,58,43,0.2), transparent); }
+
+.bks-inner {
   max-width: 1200px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
 }
 
-.section-label { display: block; margin-bottom: 18px; }
-.bk-title {
+/* ── Left copy ── */
+.bks-label {
+  display: block; margin-bottom: 16px;
+  font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold);
+}
+.bks-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
-  font-weight: 300; line-height: 1.15; color: var(--forest);
-  margin-bottom: 20px;
+  font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 300; line-height: 1.12; color: var(--charcoal);
+  margin-bottom: 22px;
 }
-.bk-title em { font-style: italic; color: var(--gold); }
-.bk-sub { font-size: 0.95rem; line-height: 1.75; color: var(--muted); margin-bottom: 28px; max-width: 440px; }
-.bk-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
-.bkf { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--forest); }
+.bks-title em { font-style: italic; color: var(--forest); }
+.bks-sub { font-size: 0.95rem; line-height: 1.78; color: #555; margin-bottom: 32px; max-width: 440px; }
 
-.bk-actions { display: flex; flex-direction: column; gap: 20px; }
-.btn-book {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--white); background: var(--forest);
-  padding: 17px 34px; border: none;
-  transition: background 0.3s, transform 0.3s var(--spring), box-shadow 0.3s;
-  width: fit-content;
-}
-.btn-book:hover { background: var(--gold); color: var(--forest-deep); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(201,168,76,0.2); }
+.bks-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.bks-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #333; }
 
-.bk-alts { display: flex; flex-direction: column; gap: 10px; }
-.alt-link {
-  display: flex; align-items: center; gap: 9px;
-  text-decoration: none; color: var(--muted); font-size: 0.85rem;
+.bks-contacts { display: flex; flex-direction: column; gap: 10px; }
+.bks-contact {
+  display: inline-flex; align-items: center; gap: 9px;
+  text-decoration: none; font-size: 0.85rem; color: #777;
   transition: color 0.2s;
 }
-.alt-link:hover { color: var(--gold); }
+.bks-contact:hover { color: var(--forest); }
 
-/* Right card */
-.bk-right { display: flex; justify-content: center; }
-.bk-card {
-  background: var(--forest-deep);
-  border: 1px solid rgba(201,168,76,0.18);
+/* ── Right card ── */
+.bks-card {
+  background: #FAFAF8;
+  border: 1px solid #E8E4DC;
+  border-radius: 8px;
   padding: 36px;
-  width: 100%; max-width: 380px;
-  box-shadow: 0 24px 60px rgba(10,31,20,0.18);
+  box-shadow: 0 8px 40px rgba(28,58,43,0.08), 0 1px 3px rgba(28,58,43,0.05);
 }
-.bk-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(247,242,232,0.07); }
-.bk-card-header strong { display: block; font-family: var(--font-ui); font-size: 0.9rem; color: var(--cream); margin-bottom: 3px; }
-.bk-card-header span { font-size: 0.72rem; color: rgba(247,242,232,0.35); }
-.bk-card-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-.bk-card-meta span { font-family: var(--font-ui); font-size: 0.72rem; color: rgba(247,242,232,0.45); letter-spacing: 0.04em; }
-.bk-card-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.bk-card-list li { font-size: 0.82rem; color: rgba(247,242,232,0.55); padding-left: 14px; position: relative; line-height: 1.5; }
-.bk-card-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 1px; background: var(--gold); }
-.bk-card-btn {
-  display: flex; align-items: center; justify-content: space-between;
-  width: 100%; padding: 15px 18px;
-  background: var(--gold); color: var(--forest-deep);
-  font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700;
-  letter-spacing: 0.06em; border: none;
-  transition: background 0.3s, transform 0.2s var(--spring);
-}
-.bk-card-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-@media (max-width: 1000px) { .booking-cta { padding: 80px 40px; } .bk-inner { grid-template-columns: 1fr; gap: 48px; } }
-@media (max-width: 600px) { .booking-cta { padding: 60px 20px; } }
+.bks-card-head {
+  display: flex; align-items: center; gap: 14px;
+  padding-bottom: 20px; margin-bottom: 20px;
+  border-bottom: 1px solid #ECEAE4;
+}
+.bks-card-icon {
+  width: 52px; height: 52px; border-radius: 8px;
+  background: #F0EDE5;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.bks-card-head strong { display: block; font-family: var(--font-ui); font-size: 0.92rem; color: var(--charcoal); margin-bottom: 3px; }
+.bks-card-head span { font-size: 0.74rem; color: #999; }
+
+.bks-card-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.badge {
+  font-family: var(--font-ui); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em; padding: 5px 11px;
+  background: #F0EDE5; border: 1px solid #E0DDD5;
+  border-radius: 20px; color: #666;
+}
+.badge-free { background: rgba(28,58,43,0.07); border-color: rgba(28,58,43,0.15); color: var(--forest); }
+
+.bks-card-list {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 28px;
+}
+.bks-card-list li {
+  font-size: 0.85rem; color: #555; padding-left: 16px; position: relative; line-height: 1.5;
+}
+.bks-card-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 8px;
+  width: 7px; height: 1.5px;
+  background: var(--gold);
+}
+
+.bks-card-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 16px 20px;
+  background: var(--forest); color: #FDFAF5;
+  font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.06em; border: none; border-radius: 5px;
+  margin-bottom: 12px;
+  transition: background 0.3s, transform 0.2s var(--spring), box-shadow 0.3s;
+}
+.bks-card-btn:hover {
+  background: var(--forest-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(28,58,43,0.2);
+}
+
+.bks-card-note { text-align: center; font-size: 0.74rem; color: #AAA; }
+
+/* ── Responsive ── */
+@media (max-width: 1000px) { .bks { padding: 80px 40px; } .bks-inner { grid-template-columns: 1fr; gap: 48px; } }
+@media (max-width: 600px)  { .bks { padding: 60px 20px; } }
 </style>
