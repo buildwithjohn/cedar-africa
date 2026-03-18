@@ -70,7 +70,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 <style scoped>
 .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: padding 0.4s, background 0.4s, border-color 0.4s; }
-.navbar.scrolled { background: rgba(10,31,20,0.92); backdrop-filter: blur(20px); padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.15); }
+.navbar.scrolled { background: rgba(8,15,26,0.94); backdrop-filter: blur(20px); padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.15); }
 .nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 32px; }
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
 .logo-text-wrap { display: flex; flex-direction: column; gap: 1px; }
