@@ -97,13 +97,13 @@ onUnmounted(() => {
 </script>
 
 <style>
-.loader { position: fixed; inset: 0; background: var(--forest-deep); display: flex; align-items: center; justify-content: center; z-index: 99997; transition: opacity 0.6s, visibility 0.6s; }
+.loader { position: fixed; inset: 0; background: var(--navy-deep); display: flex; align-items: center; justify-content: center; z-index: 99997; transition: opacity 0.6s, visibility 0.6s; }
 .loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .loader-inner svg { animation: loaderPulse 1.4s ease-in-out infinite; }
 @keyframes loaderPulse { 0%,100% { opacity:0.5; transform:scale(0.94); } 50% { opacity:1; transform:scale(1.04); } }
 .loader-wordmark { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--cream); letter-spacing: 0.08em; }
-.loader-bar { width: 180px; height: 1px; background: rgba(247,242,232,0.08); overflow: hidden; }
+.loader-bar { width: 180px; height: 1px; background: rgba(240,244,255,0.08); overflow: hidden; }
 .loader-progress { height: 100%; background: linear-gradient(90deg, var(--gold), var(--tech-blue)); transition: width 0.25s; }
-.loader-sub { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,242,232,0.22); }
+.loader-sub { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(240,244,255,0.22); }
 </style>

@@ -85,7 +85,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 </script>
 
 <style scoped>
-.testimonials { padding: 120px 80px; background: var(--forest); position: relative; overflow: hidden; }
+.testimonials { padding: 120px 80px; background: var(--blue); position: relative; overflow: hidden; }
 .testimonials::before { content: '❝'; position: absolute; top: -60px; right: 60px; font-size: 30vw; color: rgba(201,168,76,0.04); font-family: var(--font-display); line-height: 1; pointer-events: none; }
 .testimonials-inner { max-width: 900px; margin: 0 auto; }
 .t-header { margin-bottom: 56px; }
@@ -94,25 +94,25 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 .t-title em { font-style: italic; color: var(--gold); }
 .t-slider { position: relative; overflow: hidden; margin-bottom: 56px; }
 .t-track { display: flex; transition: transform 0.6s var(--ease-out-expo); }
-.t-card { flex: 0 0 100%; background: rgba(247,242,232,0.04); border: 1px solid rgba(247,242,232,0.08); padding: 48px; position: relative; }
+.t-card { flex: 0 0 100%; background: rgba(240,244,255,0.04); border: 1px solid rgba(240,244,255,0.08); padding: 48px; position: relative; }
 .t-quote { font-family: var(--font-display); font-size: 6rem; color: var(--gold); line-height: 0.6; margin-bottom: 28px; opacity: 0.5; }
-.t-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.75; color: rgba(247,242,232,0.85); margin-bottom: 36px; }
+.t-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.75; color: rgba(240,244,255,0.85); margin-bottom: 36px; }
 .t-author { display: flex; align-items: center; gap: 16px; }
 .t-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); font-size: 1.1rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
 .t-author strong { display: block; font-family: var(--font-ui); font-size: 0.9rem; color: var(--cream); margin-bottom: 3px; }
-.t-author span { font-size: 0.78rem; color: rgba(247,242,232,0.45); }
+.t-author span { font-size: 0.78rem; color: rgba(240,244,255,0.45); }
 .t-stars { margin-left: auto; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }
 .t-tag { position: absolute; top: 36px; right: 36px; font-family: var(--font-ui); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.1); padding: 6px 12px; border: 1px solid rgba(201,168,76,0.2); }
 .t-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 32px; }
-.t-btn { width: 44px; height: 44px; border: 1px solid rgba(247,242,232,0.15); background: transparent; color: var(--cream); display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s; }
-.t-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--forest-deep); }
+.t-btn { width: 44px; height: 44px; border: 1px solid rgba(240,244,255,0.15); background: transparent; color: var(--cream); display: flex; align-items: center; justify-content: center; transition: background 0.3s, border-color 0.3s; }
+.t-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
 .t-dots { display: flex; gap: 8px; }
-.t-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(247,242,232,0.2); border: none; transition: background 0.3s, width 0.3s; }
+.t-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,244,255,0.2); border: none; transition: background 0.3s, width 0.3s; }
 .t-dot.active { background: var(--gold); width: 24px; border-radius: 3px; }
-.t-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; border-top: 1px solid rgba(247,242,232,0.08); padding-top: 48px; }
+.t-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; border-top: 1px solid rgba(240,244,255,0.08); padding-top: 48px; }
 .t-stat { display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; padding: 24px; }
 .t-stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 500; color: var(--gold); line-height: 1; }
-.t-stat-label { font-size: 0.8rem; color: rgba(247,242,232,0.4); }
+.t-stat-label { font-size: 0.8rem; color: rgba(240,244,255,0.4); }
 @media (max-width: 800px) { .testimonials { padding: 80px 30px; } .t-card { padding: 32px 24px; } .t-tag { display: none; } .t-stats { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .testimonials { padding: 60px 20px; } }
 </style>

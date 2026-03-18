@@ -88,7 +88,7 @@ useReveal('.process .reveal')
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 300;
-  color: var(--forest);
+  color: var(--blue);
   line-height: 1.2;
 }
 .process-title em { font-style: italic; color: var(--gold); }
@@ -131,7 +131,7 @@ useReveal('.process .reveal')
   color: var(--gold);
   transition: color 0.3s;
 }
-.step.active .step-num span { color: var(--forest-deep); }
+.step.active .step-num span { color: var(--navy-deep); }
 .step-connector {
   position: absolute;
   top: 28px;
@@ -157,7 +157,7 @@ useReveal('.process .reveal')
   font-family: var(--font-ui);
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--blue);
   margin-bottom: 10px;
   letter-spacing: 0.02em;
 }
@@ -186,13 +186,13 @@ useReveal('.process .reveal')
   text-transform: uppercase;
   text-decoration: none;
   color: var(--white);
-  background: var(--forest);
+  background: var(--blue);
   padding: 18px 40px;
   transition: background 0.3s, transform 0.3s var(--spring), box-shadow 0.3s;
 }
 .btn-primary:hover {
   background: var(--gold);
-  color: var(--forest-deep);
+  color: var(--navy-deep);
   transform: translateY(-2px);
   box-shadow: 0 20px 40px rgba(201,168,76,0.2);
 }
