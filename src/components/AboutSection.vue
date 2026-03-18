@@ -74,7 +74,7 @@ useReveal('.about .reveal')
   font-family: var(--font-display);
   font-size: 20vw;
   font-weight: 700;
-  color: rgba(28,58,43,0.04);
+  color: rgba(30,77,140,0.04);
   pointer-events: none;
   line-height: 1;
 }
@@ -93,7 +93,7 @@ useReveal('.about .reveal')
   font-size: clamp(2.2rem, 3.5vw, 3.5rem);
   font-weight: 300;
   line-height: 1.15;
-  color: var(--forest);
+  color: var(--blue);
   margin-bottom: 32px;
 }
 .about-title em {
@@ -118,7 +118,7 @@ useReveal('.about .reveal')
 }
 .value:hover { transform: translateX(6px); box-shadow: 4px 0 20px rgba(201,168,76,0.15); }
 .value-icon { font-size: 1.4rem; flex-shrink: 0; }
-.value strong { display: block; font-family: var(--font-ui); font-size: 0.9rem; font-weight: 600; color: var(--forest); margin-bottom: 4px; }
+.value strong { display: block; font-family: var(--font-ui); font-size: 0.9rem; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
 .value span { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
 .about-visual { position: relative; }
@@ -140,7 +140,7 @@ useReveal('.about .reveal')
 .mission-card {
   position: absolute;
   bottom: -40px; left: -40px;
-  background: var(--forest);
+  background: var(--blue);
   color: var(--cream);
   padding: 32px;
   max-width: 300px;
@@ -152,7 +152,7 @@ useReveal('.about .reveal')
   font-size: 1.05rem;
   font-style: italic;
   line-height: 1.65;
-  color: rgba(247,242,232,0.85);
+  color: rgba(240,244,255,0.85);
   margin-bottom: 20px;
 }
 .card-sig { display: flex; align-items: center; gap: 14px; }
@@ -162,7 +162,7 @@ useReveal('.about .reveal')
   flex-shrink: 0;
 }
 .card-sig strong { display: block; font-family: var(--font-ui); font-size: 0.85rem; color: var(--cream); }
-.card-sig span { font-size: 0.75rem; color: rgba(247,242,232,0.5); }
+.card-sig span { font-size: 0.75rem; color: rgba(240,244,255,0.5); }
 
 @media (max-width: 1000px) {
   .about { padding: 80px 40px; }

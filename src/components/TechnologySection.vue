@@ -41,14 +41,14 @@
         <div class="pillar pillar-center reveal reveal-delay-2" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
           <div class="pillar-icon geo-icon">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <rect width="48" height="48" rx="24" fill="rgba(78,205,196,0.1)"/>
+              <rect width="48" height="48" rx="24" fill="rgba(91,164,245,0.1)"/>
               <circle cx="24" cy="24" r="10" stroke="var(--tech-blue)" stroke-width="1.5" fill="none"/>
               <circle cx="24" cy="24" r="3" fill="var(--tech-blue)"/>
               <line x1="24" y1="10" x2="24" y2="14" stroke="var(--tech-blue)" stroke-width="1.5" stroke-linecap="round"/>
               <line x1="24" y1="34" x2="24" y2="38" stroke="var(--tech-blue)" stroke-width="1.5" stroke-linecap="round"/>
               <line x1="10" y1="24" x2="14" y2="24" stroke="var(--tech-blue)" stroke-width="1.5" stroke-linecap="round"/>
               <line x1="34" y1="24" x2="38" y2="24" stroke="var(--tech-blue)" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="16" stroke="rgba(78,205,196,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <circle cx="24" cy="24" r="16" stroke="rgba(91,164,245,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
             </svg>
           </div>
           <div class="pillar-num tech-num">02</div>
@@ -122,7 +122,7 @@ useReveal('.tech .reveal')
 <style scoped>
 .tech {
   padding: 130px 80px;
-  background: var(--forest-deep);
+  background: var(--navy-deep);
   position: relative;
   overflow: hidden;
 }
@@ -131,7 +131,7 @@ useReveal('.tech .reveal')
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 15% 50%, rgba(78,205,196,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 15% 50%, rgba(91,164,245,0.05) 0%, transparent 40%),
     radial-gradient(circle at 85% 50%, rgba(201,168,76,0.06) 0%, transparent 40%);
   pointer-events: none;
 }
@@ -153,7 +153,7 @@ useReveal('.tech .reveal')
   margin-bottom: 24px;
 }
 .tech-title em { font-style: italic; color: var(--gold); }
-.tech-sub { font-size: 1rem; line-height: 1.8; color: rgba(247,242,232,0.55); max-width: 560px; }
+.tech-sub { font-size: 1rem; line-height: 1.8; color: rgba(240,244,255,0.55); max-width: 560px; }
 
 .tech-pillars {
   display: grid;
@@ -163,25 +163,25 @@ useReveal('.tech .reveal')
 }
 .pillar {
   position: relative;
-  background: rgba(247,242,232,0.02);
-  border: 1px solid rgba(247,242,232,0.07);
+  background: rgba(240,244,255,0.02);
+  border: 1px solid rgba(240,244,255,0.07);
   padding: 48px 40px 48px;
   overflow: hidden;
   transition: background 0.4s, border-color 0.4s, transform 0.4s var(--spring);
 }
-.pillar:hover { background: rgba(247,242,232,0.05); transform: translateY(-6px); border-color: rgba(201,168,76,0.3); }
-.pillar-center { border-color: rgba(78,205,196,0.2); background: rgba(78,205,196,0.03); }
-.pillar-center:hover { border-color: rgba(78,205,196,0.5); }
+.pillar:hover { background: rgba(240,244,255,0.05); transform: translateY(-6px); border-color: rgba(201,168,76,0.3); }
+.pillar-center { border-color: rgba(91,164,245,0.2); background: rgba(91,164,245,0.03); }
+.pillar-center:hover { border-color: rgba(91,164,245,0.5); }
 
 .pillar-icon { margin-bottom: 28px; }
 .pillar-num {
   font-family: var(--font-display);
   font-size: 5rem; font-weight: 700;
-  color: rgba(247,242,232,0.04);
+  color: rgba(240,244,255,0.04);
   position: absolute; top: 20px; right: 24px;
   line-height: 1;
 }
-.tech-num { color: rgba(78,205,196,0.06); }
+.tech-num { color: rgba(91,164,245,0.06); }
 
 .pillar h3 {
   font-family: var(--font-ui);
@@ -191,12 +191,12 @@ useReveal('.tech .reveal')
 }
 .pillar p {
   font-size: 0.88rem; line-height: 1.75;
-  color: rgba(247,242,232,0.5);
+  color: rgba(240,244,255,0.5);
   margin-bottom: 28px;
 }
 .pillar-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .pillar-features li {
-  font-size: 0.8rem; color: rgba(247,242,232,0.4);
+  font-size: 0.8rem; color: rgba(240,244,255,0.4);
   padding-left: 16px; position: relative; line-height: 1.4;
 }
 .pillar-features li::before { content: ''; position: absolute; left: 0; top: 7px; width: 7px; height: 1px; background: var(--gold); }
@@ -207,8 +207,8 @@ useReveal('.tech .reveal')
   font-family: var(--font-ui); font-size: 0.6rem; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--tech-blue);
-  background: rgba(78,205,196,0.1);
-  border: 1px solid rgba(78,205,196,0.25);
+  background: rgba(91,164,245,0.1);
+  border: 1px solid rgba(91,164,245,0.25);
   padding: 5px 10px;
 }
 
@@ -219,33 +219,33 @@ useReveal('.tech .reveal')
   pointer-events: none;
 }
 .gold-glow { background: rgba(201,168,76,0.15); }
-.tech-glow { background: rgba(78,205,196,0.12); }
+.tech-glow { background: rgba(91,164,245,0.12); }
 .pillar:hover .pillar-glow { opacity: 1; }
 
 /* Tech stats */
 .tech-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  border: 1px solid rgba(247,242,232,0.07);
+  border: 1px solid rgba(240,244,255,0.07);
 }
 .ts {
   padding: 36px 32px; display: flex; flex-direction: column; gap: 8px;
-  border-right: 1px solid rgba(247,242,232,0.07);
+  border-right: 1px solid rgba(240,244,255,0.07);
   transition: background 0.3s;
 }
 .ts:last-child { border-right: none; }
-.ts:hover { background: rgba(247,242,232,0.03); }
+.ts:hover { background: rgba(240,244,255,0.03); }
 .ts-val {
   font-family: var(--font-display);
   font-size: 2.4rem; font-weight: 500; color: var(--gold); line-height: 1;
 }
-.ts-label { font-size: 0.82rem; color: rgba(247,242,232,0.38); line-height: 1.4; }
+.ts-label { font-size: 0.82rem; color: rgba(240,244,255,0.38); line-height: 1.4; }
 
 @media (max-width: 1060px) {
   .tech { padding: 80px 40px; }
   .tech-pillars { grid-template-columns: 1fr; }
   .tech-stats { grid-template-columns: repeat(2, 1fr); }
   .ts:nth-child(2) { border-right: none; }
-  .ts { border-right: 1px solid rgba(247,242,232,0.07); border-bottom: 1px solid rgba(247,242,232,0.07); }
+  .ts { border-right: 1px solid rgba(240,244,255,0.07); border-bottom: 1px solid rgba(240,244,255,0.07); }
 }
 @media (max-width: 600px) {
   .tech { padding: 60px 20px; }

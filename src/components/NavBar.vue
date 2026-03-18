@@ -76,20 +76,20 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .logo-text-wrap { display: flex; flex-direction: column; gap: 1px; }
 .logo-text { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--cream); letter-spacing: 0.02em; }
 .logo-text em { font-style: normal; color: var(--gold); }
-.logo-sub { font-family: var(--font-body); font-size: 0.62rem; color: rgba(247,242,232,0.3); letter-spacing: 0.08em; }
+.logo-sub { font-family: var(--font-body); font-size: 0.62rem; color: rgba(240,244,255,0.3); letter-spacing: 0.08em; }
 .nav-links { display: flex; gap: 28px; list-style: none; margin-left: auto; }
-.nav-links a { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: rgba(247,242,232,0.7); position: relative; padding-bottom: 2px; transition: color 0.2s; }
+.nav-links a { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: rgba(240,244,255,0.7); position: relative; padding-bottom: 2px; transition: color 0.2s; }
 .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
 .nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { width: 100%; }
-.nav-cta { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest-deep); background: var(--gold); padding: 12px 22px; border: none; white-space: nowrap; flex-shrink: 0; transition: background 0.3s, transform 0.2s var(--spring); }
+.nav-cta { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-deep); background: var(--gold); padding: 12px 22px; border: none; white-space: nowrap; flex-shrink: 0; transition: background 0.3s, transform 0.2s var(--spring); }
 .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; margin-left: auto; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--cream); transition: all 0.3s; }
 .menu-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
 .menu-open .hamburger span:nth-child(2) { opacity: 0; }
 .menu-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-.mobile-menu { display: none; background: var(--forest-deep); padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.4s, padding 0.4s; border-bottom: 1px solid rgba(201,168,76,0.1); }
+.mobile-menu { display: none; background: var(--navy-deep); padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.4s, padding 0.4s; border-bottom: 1px solid rgba(201,168,76,0.1); }
 .menu-open .mobile-menu { max-height: 400px; padding: 20px 24px 28px; }
 .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 18px; }
 .mobile-menu a { font-family: var(--font-ui); font-size: 1rem; font-weight: 600; text-decoration: none; color: var(--cream); }

@@ -73,7 +73,7 @@ const linkCols = [
 
 <style scoped>
 .footer {
-  background: var(--forest-deep);
+  background: var(--navy-deep);
   padding: 80px 80px 40px;
   border-top: 1px solid rgba(201,168,76,0.15);
 }
@@ -83,7 +83,7 @@ const linkCols = [
   gap: 80px;
   margin-bottom: 60px;
   padding-bottom: 60px;
-  border-bottom: 1px solid rgba(247,242,232,0.06);
+  border-bottom: 1px solid rgba(240,244,255,0.06);
 }
 .footer-logo {
   display: flex;
@@ -99,13 +99,13 @@ const linkCols = [
   color: var(--cream);
 }
 .footer-logo em { font-style: normal; color: var(--gold); }
-.footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(247,242,232,0.4); margin-bottom: 28px; }
+.footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(240,244,255,0.4); margin-bottom: 28px; }
 .socials { display: flex; gap: 12px; }
 .socials a {
   width: 38px; height: 38px;
-  border: 1px solid rgba(247,242,232,0.1);
+  border: 1px solid rgba(240,244,255,0.1);
   display: flex; align-items: center; justify-content: center;
-  color: rgba(247,242,232,0.4);
+  color: rgba(240,244,255,0.4);
   text-decoration: none;
   transition: border-color 0.3s, color 0.3s, background 0.3s;
 }
@@ -123,7 +123,7 @@ const linkCols = [
 .fl-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .fl-col a {
   font-size: 0.85rem;
-  color: rgba(247,242,232,0.45);
+  color: rgba(240,244,255,0.45);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -133,10 +133,10 @@ const linkCols = [
   align-items: center;
   justify-content: space-between;
   font-size: 0.78rem;
-  color: rgba(247,242,232,0.25);
+  color: rgba(240,244,255,0.25);
 }
 .footer-legal { display: flex; gap: 24px; }
-.footer-legal a { color: rgba(247,242,232,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-legal a { color: rgba(240,244,255,0.25); text-decoration: none; transition: color 0.2s; }
 .footer-legal a:hover { color: var(--gold); }
 
 @media (max-width: 900px) {
