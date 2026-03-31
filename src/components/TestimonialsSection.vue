@@ -3,16 +3,14 @@
     <div class="testimonials-inner">
       <div class="t-header">
         <span class="section-label reveal">Client Stories</span>
-        <h2 class="t-title reveal reveal-delay-1">Real families.<br/><em>Real homes.</em></h2>
+        <h2 class="t-title reveal reveal-delay-1">Real projects.<br/><em>Real results.</em></h2>
       </div>
 
       <div class="t-slider"
-        @mouseenter="pauseAuto"
-        @mouseleave="resumeAuto"
-        @touchstart="pauseAuto"
-        @touchend="resumeAuto">
+        @mouseenter="pauseAuto" @mouseleave="resumeAuto"
+        @touchstart="pauseAuto" @touchend="resumeAuto">
         <div class="t-track" :style="{ transform: `translateX(-${active * 100}%)` }">
-          <div class="t-card" v-for="(t, i) in testimonials" :key="t.name">
+          <div class="t-card" v-for="t in testimonials" :key="t.name">
             <div class="t-quote">"</div>
             <p class="t-text">{{ t.text }}</p>
             <div class="t-author">
@@ -32,11 +30,7 @@
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16 10H4M10 4L4 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <div class="t-dots">
-            <button v-for="(t, i) in testimonials" :key="i"
-              class="t-dot" :class="{ active: active === i }"
-              @click="active = i" :aria-label="'Testimonial ' + (i+1)"
-              @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-            </button>
+            <button v-for="(t, i) in testimonials" :key="i" class="t-dot" :class="{ active: active === i }" @click="active = i"></button>
           </div>
           <button class="t-btn" @click="next" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" aria-label="Next">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -62,31 +56,30 @@ useReveal('.testimonials .reveal')
 
 const active = ref(0)
 const testimonials = [
-  { text: "I was skeptical about building from the UK without being there. Cedar Home Builder sent me drone videos every single month, and their geo-referenced map showed me exactly where my plot sits. Delivered on time and on budget.", name: "Ngozi Adeyemi", location: "Manchester, UK", project: "4-Bedroom Duplex, Lekki", color: "#2A5040" },
-  { text: "The title verification alone was worth every penny. They showed me GPS-anchored documentation I could cross-reference with government records. That level of transparency is rare in Nigeria.", name: "Emeka Okonkwo", location: "Houston, USA", project: "Land Acquisition, Abuja", color: "#C9A84C" },
-  { text: "From first call to handover — 14 months. I expected 24. Their live map dashboard meant I could see my plot and track progress any time. I visited once and was genuinely impressed.", name: "Amara Diallo", location: "Toronto, Canada", project: "3-Bedroom Bungalow, Enugu", color: "#1C3A2B" },
-  { text: "I manage my property from Germany. The drone footage library they give you is incredible — high quality aerial footage every month. Total peace of mind.", name: "Chisom Eze", location: "Berlin, Germany", project: "Property Management, PH", color: "#8B5A2B" },
+  { text: "I managed my entire 4-bedroom build from Manchester without visiting Nigeria once until handover. The dashboard showed every milestone, the drone footage was incredible, and my project manager responded within hours every time. This platform changed everything for me.", name: "Ngozi Adeyemi", location: "Manchester, UK", project: "4-Bedroom Duplex · Lekki Phase 1", color: "#1E4D8C" },
+  { text: "What impressed me most was the GPS-verified title documentation. I had been scammed before by a different agent. Cedar Home Builder's geo-referenced maps and government cross-checks gave me confidence I had never felt before in Nigerian property.", name: "Emeka Okonkwo", location: "Houston, USA", project: "Land Acquisition · Maitama, Abuja", color: "#C9A84C" },
+  { text: "I approved every design, every payment, and every contractor appointment remotely through the platform. It felt like I was on the ground even from Toronto. My 3-bedroom is now rented out and generating income — all managed by the Cedar team.", name: "Amara Diallo", location: "Toronto, Canada", project: "3-Bedroom Bungalow · Enugu", color: "#1A3A5C" },
+  { text: "The monthly drone videos are worth everything. My family visits the site and confirms what I already see on my dashboard. Cedar Home Builder is the only platform I trust for remote construction management in Nigeria.", name: "Chisom Eze", location: "Berlin, Germany", project: "Remote Monitoring · Port Harcourt", color: "#2563B0" },
 ]
 const stats = [
   { num: '98%', label: 'Client satisfaction rate' },
-  { num: '200+', label: 'Homes delivered' },
+  { num: '200+', label: 'Projects completed' },
   { num: '0', label: 'Title disputes ever' },
-  { num: '14mo', label: 'Average build time' },
+  { num: '100%', label: 'Dashboard uptime' },
 ]
 
 let timer = null
 const next = () => { active.value = (active.value + 1) % testimonials.length }
 const prev = () => { active.value = (active.value - 1 + testimonials.length) % testimonials.length }
-const pauseAuto = () => { if (timer) { clearInterval(timer); timer = null } }
+const pauseAuto  = () => { if (timer) { clearInterval(timer); timer = null } }
 const resumeAuto = () => { if (!timer) timer = setInterval(next, 6000) }
-
 onMounted(() => { timer = setInterval(next, 6000) })
 onUnmounted(() => { if (timer) clearInterval(timer) })
 </script>
 
 <style scoped>
-.testimonials { padding: 120px 80px; background: var(--blue); position: relative; overflow: hidden; }
-.testimonials::before { content: '❝'; position: absolute; top: -60px; right: 60px; font-size: 30vw; color: rgba(201,168,76,0.04); font-family: var(--font-display); line-height: 1; pointer-events: none; }
+.testimonials { padding: 120px 80px; background: var(--navy-deep); position: relative; overflow: hidden; }
+.testimonials::before { content: '❝'; position: absolute; top: -60px; right: 60px; font-size: 30vw; color: rgba(91,164,245,0.04); font-family: var(--font-display); line-height: 1; pointer-events: none; }
 .testimonials-inner { max-width: 900px; margin: 0 auto; }
 .t-header { margin-bottom: 56px; }
 .section-label { display: block; margin-bottom: 16px; }
@@ -98,7 +91,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 .t-quote { font-family: var(--font-display); font-size: 6rem; color: var(--gold); line-height: 0.6; margin-bottom: 28px; opacity: 0.5; }
 .t-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.75; color: rgba(240,244,255,0.85); margin-bottom: 36px; }
 .t-author { display: flex; align-items: center; gap: 16px; }
-.t-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); font-size: 1.1rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+.t-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); font-size: 1.1rem; font-weight: 700; color: #FAFCFF; flex-shrink: 0; }
 .t-author strong { display: block; font-family: var(--font-ui); font-size: 0.9rem; color: var(--cream); margin-bottom: 3px; }
 .t-author span { font-size: 0.78rem; color: rgba(240,244,255,0.45); }
 .t-stars { margin-left: auto; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }

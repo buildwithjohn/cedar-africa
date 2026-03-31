@@ -4,10 +4,10 @@
       <div class="mp-header">
         <span class="section-label reveal">Live Platform Demo</span>
         <h2 class="mp-title reveal reveal-delay-1">
-          Your property. On the map.<br/><em>Right now.</em>
+          Your site. Live on the map.<br/><em>Right now.</em>
         </h2>
         <p class="mp-sub reveal reveal-delay-2">
-          Every Cedar Home Builder client gets access to a live, geo-referenced property dashboard. Below is a real-time view of Lagos — the same technology powering your project tracker.
+          Every Cedar Home Builder project has a live geo-referenced map dashboard. Below is a real demonstration of our platform — showing active project sites across Nigeria with GPS-verified boundaries and real-time status.
         </p>
       </div>
 
@@ -17,7 +17,7 @@
           <div class="map-chrome">
             <div class="chrome-bar">
               <div class="chrome-dots"><span></span><span></span><span></span></div>
-              <span class="chrome-url">🔒 app.cedarhomebuilder.com / map / client-dashboard</span>
+              <span class="chrome-url">🔒 platform.cedarhomebuilder.com / map / live</span>
               <div class="chrome-actions">
                 <span>Layers</span>
                 <span>Filter</span>
@@ -90,13 +90,13 @@
                 <strong>Aerial Survey — March 2025</strong>
                 <span>Plot A-23 · Lekki Phase 1</span>
                 <span>📍 6.4352°N, 3.4737°E</span>
-                <a href="#booking" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" class="view-link">View full footage →</a>
+                <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zpTqSehcwegH0km1LLZqKWuUFaMqzVfiKo0H5fpj2qoECms8vbq27a_9vp8oGA0FqRUybkiZQ?gv=true" target="_blank" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" class="view-link">View full footage →</a>
               </div>
             </div>
           </div>
 
-          <a href="#booking" class="sidebar-cta" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-            Get access to your own dashboard
+          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zpTqSehcwegH0km1LLZqKWuUFaMqzVfiKo0H5fpj2qoECms8vbq27a_9vp8oGA0FqRUybkiZQ?gv=true" target="_blank" class="sidebar-cta" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+            Book a platform demo call
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M8 3L13 8L8 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
           </a>
         </div>
