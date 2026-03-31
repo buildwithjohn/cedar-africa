@@ -2,12 +2,12 @@
   <section class="services" id="services">
     <div class="services-inner">
       <div class="services-header">
-        <span class="section-label reveal">Full-Service Platform</span>
+        <span class="section-label reveal">Platform Services</span>
         <h2 class="services-title reveal reveal-delay-1">
-          Technology-backed,<br/><em>end-to-end</em> delivery.
+          Everything you need to manage<br/>a home build <em>remotely.</em>
         </h2>
         <p class="services-sub reveal reveal-delay-2">
-          Cedar Home Builder combines its geo-tech platform with a complete construction and property management service — one partner, start to finish.
+          From land acquisition to final handover — every stage is managed through the platform, giving you full visibility and control without being on the ground.
         </p>
       </div>
 
@@ -36,36 +36,35 @@
 <script setup>
 import { useReveal } from '../composables/useReveal.js'
 defineEmits(['hover', 'unhover'])
+useReveal('.services .reveal')
 
 const services = [
-  { icon: '🗺', title: 'Geo-Verified Land Acquisition', color: '#C9A84C', techTag: 'GPS + Map Platform',
-    desc: 'Every plot we present is geo-referenced on our interactive map with GPS coordinates, satellite imagery, and government title verification before you see it.',
-    features: ['GPS-anchored title verification', 'Satellite boundary check', 'Secure escrow payments', 'Digital ownership certificate'] },
-  { icon: '📐', title: 'Design & Architecture', color: 'var(--tech-blue)', techTag: null,
-    desc: 'Architects design your home in 3D. Walk through your property virtually before a single brick is laid.',
-    features: ['3D virtual walkthroughs', 'Structural drawings', 'Material cost estimation', 'Client approval workflow'] },
-  { icon: '🏗', title: 'Construction Management', color: '#C9A84C', techTag: null,
-    desc: 'Vetted contractors, supervised timelines, and rigorous quality control at every phase.',
-    features: ['On-site supervision', 'Milestone-based payments', 'Quality assurance checks', 'Real-time timeline tracker'] },
-  { icon: '🛸', title: 'Drone Progress Reports', color: 'var(--tech-blue)', techTag: 'Drone + Geo-tag',
-    desc: 'Monthly 4K aerial drone surveys delivered to your private dashboard. See every inch of progress from above, with coordinates stamped on every frame.',
-    features: ['4K aerial video monthly', 'Geo-tagged photography', 'Month-on-month comparison', 'Client drone portal'] },
-  { icon: '📡', title: 'Live Site Geolocation', color: '#C9A84C', techTag: 'Live GPS Feed',
-    desc: 'Your plot is live on our map platform 24/7. Track your project\'s GPS location, boundary, and construction phase in real time from your phone or laptop.',
-    features: ['24/7 live map access', 'Construction phase overlay', 'Alert notifications', 'Shareable site link'] },
-  { icon: '⚖️', title: 'Legal & Title Management', color: 'var(--tech-blue)', techTag: null,
-    desc: 'Our legal team handles all Nigerian property documentation — verified against our own geolocation records for watertight security.',
-    features: ['C of O processing', 'Geo-verified deed of assignment', 'Survey plan registration', 'Anti-fraud title check'] },
+  { icon: '📊', title: 'Project Dashboard', color: 'var(--gold)', techTag: 'Live Platform',
+    desc: 'Your personal command centre for every active project. View milestones, financials, team updates, and site reports in one place.',
+    features: ['Milestone tracker', 'Budget vs actual spend', 'Document vault', 'Team communication log'] },
+  { icon: '🗺', title: 'Geo-Verified Land Acquisition', color: 'var(--tech-blue)', techTag: 'GPS + Map Platform',
+    desc: 'Every plot is geo-referenced and verified against government land records before you commit a single naira.',
+    features: ['GPS boundary mapping', 'Title verification', 'Satellite imagery', 'Secure escrow payment'] },
+  { icon: '📐', title: 'Design & Architecture', color: 'var(--gold)', techTag: null,
+    desc: 'Architects create your plans and 3D renders. Review and approve designs remotely through the platform before construction begins.',
+    features: ['3D virtual walkthrough', 'Structural drawings', 'Material selection', 'Remote approval workflow'] },
+  { icon: '🏗', title: 'Construction Management', color: 'var(--tech-blue)', techTag: null,
+    desc: 'Licensed contractors, on-site supervisors, and milestone-based payments ensure quality at every stage.',
+    features: ['Vetted contractors', 'Milestone-based releases', 'Quality sign-offs', 'Timeline alerts'] },
+  { icon: '🛸', title: 'Drone & Remote Monitoring', color: 'var(--gold)', techTag: 'Drone + Geo-tag',
+    desc: 'Monthly 4K aerial surveys with geo-tagged photographs delivered to your dashboard. See everything your project manager sees.',
+    features: ['Monthly 4K drone video', 'Geo-tagged site photos', 'Progress comparisons', 'Shareable links'] },
+  { icon: '🔑', title: 'Handover & Property Management', color: 'var(--tech-blue)', techTag: null,
+    desc: 'Once complete, we manage your property — finding tenants, collecting rent, and maintaining the asset on your behalf.',
+    features: ['Virtual handover tour', 'Tenant sourcing', 'Rent collection', 'Monthly statements'] },
 ]
-
-useReveal('.services .reveal')
 </script>
 
 <style scoped>
-.services { padding: 130px 80px; background: var(--navy-mid); position: relative; overflow: hidden; }
-.services::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 10% 90%, rgba(201,168,76,0.05) 0%, transparent 40%), radial-gradient(circle at 90% 10%, rgba(91,164,245,0.04) 0%, transparent 40%); pointer-events: none; }
+.services { padding: 130px 80px; background: var(--navy-deep); position: relative; overflow: hidden; }
+.services::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 10% 90%, rgba(30,77,140,0.12) 0%, transparent 40%), radial-gradient(circle at 90% 10%, rgba(201,168,76,0.05) 0%, transparent 40%); pointer-events: none; }
 .services-inner { max-width: 1240px; margin: 0 auto; }
-.services-header { margin-bottom: 72px; }
+.services-header { margin-bottom: 72px; max-width: 800px; }
 .section-label { display: block; margin-bottom: 20px; }
 .services-title { font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.5rem); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 20px; }
 .services-title em { font-style: italic; color: var(--gold); }
@@ -82,7 +81,7 @@ useReveal('.services .reveal')
 .card-features li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 1px; background: var(--accent); }
 .card-tech-tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tech-blue); background: rgba(91,164,245,0.08); border: 1px solid rgba(91,164,245,0.2); padding: 5px 10px; }
 .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--tech-blue); animation: blink 2s ease-in-out infinite; }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 .card-glow { position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%); width: 160px; height: 160px; background: var(--accent); border-radius: 50%; filter: blur(50px); opacity: 0; transition: opacity 0.4s; pointer-events: none; }
 .service-card:hover .card-glow { opacity: 0.1; }
 
