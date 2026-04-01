@@ -6,13 +6,13 @@
     <div class="loader" :class="{ loaded: pageLoaded }">
       <div class="loader-inner">
         <img src="/cedar-logo.png" alt="Cedar Home Builder" class="loader-logo" />
-        <div class="loader-bar"><div class="loader-progress" :style="{ width: loadProgress + '%' }"></div></div>
+        <div class="loader-bar"><div class="loader-fill" :style="{ width: loadProgress + '%' }"></div></div>
       </div>
     </div>
 
     <NavBar            @hover="isHovering=true" @unhover="isHovering=false" />
     <HeroSection       @hover="isHovering=true" @unhover="isHovering=false" />
-    <AboutSection />
+    <AboutSection      @hover="isHovering=true" @unhover="isHovering=false" />
     <TechnologySection @hover="isHovering=true" @unhover="isHovering=false" />
     <ServicesSection   @hover="isHovering=true" @unhover="isHovering=false" />
     <ProcessSection    @hover="isHovering=true" @unhover="isHovering=false" />
@@ -34,64 +34,39 @@ import TestimonialsSection from './components/TestimonialsSection.vue'
 import BookingSection     from './components/BookingSection.vue'
 import FooterSection      from './components/FooterSection.vue'
 
-const cursorEl     = ref(null)
-const followerEl   = ref(null)
-const isHovering   = ref(false)
-const cursorActive = ref(false)
-const pageLoaded   = ref(false)
-const loadProgress = ref(0)
+const cursorEl = ref(null), followerEl = ref(null)
+const isHovering = ref(false), cursorActive = ref(false)
+const pageLoaded = ref(false), loadProgress = ref(0)
+let rafId = null, fx = -100, fy = -100, tx = -100, ty = -100
+const lerp = (a,b,t) => a+(b-a)*t
 
-let rafId = null
-let followerX = -100, followerY = -100
-let targetX   = -100, targetY   = -100
-const lerp = (a, b, t) => a + (b - a) * t
-
-const animateFollower = () => {
-  followerX = lerp(followerX, targetX, 0.1)
-  followerY = lerp(followerY, targetY, 0.1)
-  if (followerEl.value) {
-    followerEl.value.style.left = followerX + 'px'
-    followerEl.value.style.top  = followerY + 'px'
-  }
-  rafId = requestAnimationFrame(animateFollower)
+const tick = () => {
+  fx = lerp(fx, tx, 0.1); fy = lerp(fy, ty, 0.1)
+  if (followerEl.value) { followerEl.value.style.left=fx+'px'; followerEl.value.style.top=fy+'px' }
+  rafId = requestAnimationFrame(tick)
 }
-const onMouseMove = (e) => {
-  targetX = e.clientX; targetY = e.clientY
-  if (cursorEl.value) {
-    cursorEl.value.style.left = e.clientX + 'px'
-    cursorEl.value.style.top  = e.clientY + 'px'
-  }
-  if (!cursorActive.value) {
-    cursorActive.value = true
-    if (!rafId) rafId = requestAnimationFrame(animateFollower)
-  }
+const onMove = (e) => {
+  tx=e.clientX; ty=e.clientY
+  if (cursorEl.value) { cursorEl.value.style.left=e.clientX+'px'; cursorEl.value.style.top=e.clientY+'px' }
+  if (!cursorActive.value) { cursorActive.value=true; if(!rafId) rafId=requestAnimationFrame(tick) }
 }
 onMounted(() => {
-  let prog = 0
+  let p = 0
   const iv = setInterval(() => {
-    prog += Math.random() * 15
-    loadProgress.value = Math.min(prog, 95)
-    if (prog >= 95) {
-      clearInterval(iv)
-      setTimeout(() => { loadProgress.value = 100; setTimeout(() => { pageLoaded.value = true }, 400) }, 200)
-    }
+    p += Math.random()*14; loadProgress.value = Math.min(p,95)
+    if (p>=95) { clearInterval(iv); setTimeout(()=>{loadProgress.value=100; setTimeout(()=>{pageLoaded.value=true},400)},200) }
   }, 70)
-  if (window.matchMedia('(pointer: fine)').matches) {
-    window.addEventListener('mousemove', onMouseMove, { passive: true })
-  }
+  if (window.matchMedia('(pointer:fine)').matches) window.addEventListener('mousemove', onMove, {passive:true})
 })
-onUnmounted(() => {
-  window.removeEventListener('mousemove', onMouseMove)
-  if (rafId) cancelAnimationFrame(rafId)
-})
+onUnmounted(() => { window.removeEventListener('mousemove',onMove); if(rafId) cancelAnimationFrame(rafId) })
 </script>
 
 <style>
-.loader { position: fixed; inset: 0; background: #fff; display: flex; align-items: center; justify-content: center; z-index: 99997; transition: opacity 0.5s ease, visibility 0.5s; }
-.loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-.loader-logo { height: 60px; width: auto; animation: logoPulse 1.4s ease-in-out infinite; }
-@keyframes logoPulse { 0%,100% { opacity:0.5; transform:scale(0.96); } 50% { opacity:1; transform:scale(1); } }
-.loader-bar { width: 160px; height: 2px; background: #E8E4DC; border-radius: 2px; overflow: hidden; }
-.loader-progress { height: 100%; background: var(--gold); transition: width 0.2s ease; border-radius: 2px; }
+.loader { position:fixed; inset:0; background:var(--ivory); display:flex; align-items:center; justify-content:center; z-index:99997; transition:opacity .5s, visibility .5s; }
+.loader.loaded { opacity:0; visibility:hidden; pointer-events:none; }
+.loader-inner { display:flex; flex-direction:column; align-items:center; gap:28px; }
+.loader-logo { height:64px; width:auto; animation:logoPulse 1.5s ease-in-out infinite; }
+@keyframes logoPulse { 0%,100%{opacity:.5;transform:scale(.96)} 50%{opacity:1;transform:scale(1)} }
+.loader-bar { width:140px; height:2px; background:var(--ivory-dark); border-radius:2px; overflow:hidden; }
+.loader-fill { height:100%; background:var(--gold); border-radius:2px; transition:width .2s; }
 </style>
