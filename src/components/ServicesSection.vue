@@ -38,11 +38,11 @@ const services = [
 <style scoped>
 .services { padding: 120px 0; background: var(--ink-mid); position: relative; overflow: hidden; }
 .svc-header { position: relative; margin-bottom: 64px; }
-.svc-number { font-family: var(--font-display); font-size: 10rem; font-weight: 900; color: rgba(245,239,224,0.04); line-height: 1; letter-spacing: -0.04em; margin-bottom: -40px; }
+.svc-number { font-family: var(--font-display); font-size: 10rem; font-weight: 900; color: rgba(248,249,251,0.04); line-height: 1; letter-spacing: -0.04em; margin-bottom: -40px; }
 .eyebrow { display: block; margin-bottom: 16px; }
-.svc-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 800; color: var(--ivory); line-height: 1.1; letter-spacing: -0.02em; }
+.svc-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 800; color: #F0F5FF; line-height: 1.1; letter-spacing: -0.02em; }
 .svc-title em { font-style: italic; color: var(--gold); }
-.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(245,239,224,0.06); border: 1px solid rgba(245,239,224,0.06); }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(248,249,251,0.07); border: 1px solid rgba(248,249,251,0.07); }
 .svc-card {
   background: var(--ink-mid); padding: 40px 32px;
   position: relative; transition: background .3s;
@@ -51,10 +51,10 @@ const services = [
 .svc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
 .svc-icon { font-size: 2rem; }
 .svc-tag { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: rgba(201,160,74,0.1); border: 1px solid rgba(201,160,74,0.2); padding: 4px 10px; border-radius: 20px; }
-.svc-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--ivory); margin-bottom: 10px; letter-spacing: -0.01em; }
-.svc-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(245,239,224,0.5); margin-bottom: 18px; }
+.svc-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: #F0F5FF; margin-bottom: 10px; letter-spacing: -0.01em; }
+.svc-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(200,215,235,0.6); margin-bottom: 18px; }
 .svc-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.svc-card li { font-size: 0.78rem; color: rgba(245,239,224,0.38); padding-left: 14px; position: relative; }
+.svc-card li { font-size: 0.78rem; color: rgba(200,215,235,0.42); padding-left: 14px; position: relative; }
 .svc-card li::before { content:''; position:absolute; left:0; top:7px; width:6px; height:1px; background:var(--gold); }
 
 @media (max-width: 960px) { .svc-grid { grid-template-columns: 1fr 1fr; } }

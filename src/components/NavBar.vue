@@ -80,7 +80,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .login-link:hover { color: var(--gold); }
 .book-btn {
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
-  color: var(--ivory); background: var(--ink);
+  color: #F0F5FF; background: var(--ink);
   border: none; padding: 11px 24px; border-radius: 4px;
   letter-spacing: 0.02em;
   transition: background .3s, transform .2s var(--ease-back);
@@ -95,7 +95,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 .mobile-nav {
   display: none; flex-direction: column; gap: 20px;
-  background: var(--ivory); padding: 0 24px;
+  background: var(--white); padding: 0 24px;
   max-height: 0; overflow: hidden;
   transition: max-height .4s var(--ease-expo), padding .4s;
   border-bottom: 1px solid var(--ivory-dark);

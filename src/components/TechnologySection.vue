@@ -42,16 +42,16 @@ const pillars = [
   { icon:'🗺', title:'Interactive Map Integration', accent:'#C9A04A',
     desc:'Every plot pinned on a live map with satellite imagery, GPS coordinates, and government land registry data.',
     features:['Satellite + street hybrid','Government registry overlay','Plot boundary mapping','Neighbourhood development view'] },
-  { icon:'📍', title:'Geo-Referencing & Geolocation', accent:'#C8551A',
+  { icon:'📍', title:'Geo-Referencing & Geolocation', accent:'#2A6EBF',
     desc:'Precision GPS geo-referencing anchors all survey data to real-world coordinates with sub-metre accuracy.',
     features:['Sub-metre GPS accuracy','Government survey cross-ref','Real-time location feed','Coordinate-stamped photos'] },
-  { icon:'🛸', title:'Drone Footage & Aerial Surveys', accent:'#4A6741',
+  { icon:'🛸', title:'Drone Footage & Aerial Surveys', accent:'#1B3050',
     desc:'Scheduled aerial surveys deliver 4K video walkthroughs and geo-tagged photos to your dashboard monthly.',
     features:['Monthly 4K aerial video','Geo-tagged site photos','Month-on-month overlays','Shareable client portal'] },
 ]
 </script>
 <style scoped>
-.tech { padding: 120px 0; background: var(--ivory); position: relative; }
+.tech { padding: 120px 0; background: var(--white); position: relative; }
 .tech-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
 .tech-intro-left { position: relative; }
 .tech-number { font-family: var(--font-display); font-size: 8rem; font-weight: 900; color: rgba(26,21,18,0.06); line-height: 1; margin-bottom: -20px; letter-spacing: -0.04em; }
@@ -62,7 +62,7 @@ const pillars = [
 
 .tech-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--ivory-dark); border: 1px solid var(--ivory-dark); }
 .tech-card {
-  background: var(--ivory);
+  background: var(--white);
   padding: 44px 36px;
   position: relative; overflow: hidden;
   transition: background .3s;

@@ -66,15 +66,15 @@ const openCal = () => window.open('https://calendar.google.com/calendar/appointm
 const features = ['Speak with a senior project advisor','Live platform demonstration','Discuss your vision, location & budget','Receive a clear project roadmap','No obligation, completely free']
 </script>
 <style scoped>
-.booking { background: var(--ivory); }
+.booking { background: var(--white); }
 
 /* Banner */
 .booking-banner { background: var(--ink); padding: 100px 0; }
 .banner-inner { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
 .eyebrow { display: block; margin-bottom: 16px; }
-.banner-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; color: var(--ivory); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 20px; }
+.banner-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; color: #F0F5FF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 20px; }
 .banner-title em { font-style: italic; color: var(--gold); }
-.banner-sub { font-size: 1rem; line-height: 1.75; color: rgba(245,239,224,0.55); max-width: 440px; }
+.banner-sub { font-size: 1rem; line-height: 1.75; color: rgba(200,215,235,0.65); max-width: 440px; }
 .banner-right { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .btn-banner {
   display: flex; align-items: center; gap: 12px; white-space: nowrap;
