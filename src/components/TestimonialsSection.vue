@@ -37,13 +37,6 @@
           </button>
         </div>
       </div>
-
-      <div class="t-stats reveal reveal-delay-3">
-        <div class="t-stat" v-for="s in stats" :key="s.label">
-          <span class="t-stat-num">{{ s.num }}</span>
-          <span class="t-stat-label">{{ s.label }}</span>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -60,12 +53,6 @@ const testimonials = [
   { text: "What impressed me most was the GPS-verified title documentation. I had been scammed before by a different agent. Cedar Home Builder's geo-referenced maps and government cross-checks gave me confidence I had never felt before in Nigerian property.", name: "Emeka Okonkwo", location: "Houston, USA", project: "Land Acquisition · Maitama, Abuja", color: "#C9A84C" },
   { text: "I approved every design, every payment, and every contractor appointment remotely through the platform. It felt like I was on the ground even from Toronto. My 3-bedroom is now rented out and generating income — all managed by the Cedar team.", name: "Amara Diallo", location: "Toronto, Canada", project: "3-Bedroom Bungalow · Enugu", color: "#1A3A5C" },
   { text: "The monthly drone videos are worth everything. My family visits the site and confirms what I already see on my dashboard. Cedar Home Builder is the only platform I trust for remote construction management in Nigeria.", name: "Chisom Eze", location: "Berlin, Germany", project: "Remote Monitoring · Port Harcourt", color: "#2563B0" },
-]
-const stats = [
-  { num: '98%', label: 'Client satisfaction rate' },
-  { num: '200+', label: 'Projects completed' },
-  { num: '0', label: 'Title disputes ever' },
-  { num: '100%', label: 'Dashboard uptime' },
 ]
 
 let timer = null
@@ -102,10 +89,10 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 .t-dots { display: flex; gap: 8px; }
 .t-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,244,255,0.2); border: none; transition: background 0.3s, width 0.3s; }
 .t-dot.active { background: var(--gold); width: 24px; border-radius: 3px; }
-.t-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; border-top: 1px solid rgba(240,244,255,0.08); padding-top: 48px; }
-.t-stat { display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; padding: 24px; }
-.t-stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 500; color: var(--gold); line-height: 1; }
-.t-stat-label { font-size: 0.8rem; color: rgba(240,244,255,0.4); }
-@media (max-width: 800px) { .testimonials { padding: 80px 30px; } .t-card { padding: 32px 24px; } .t-tag { display: none; } .t-stats { grid-template-columns: repeat(2, 1fr); } }
+
+
+
+
+@media (max-width: 800px) { .testimonials { padding: 80px 30px; } .t-card { padding: 32px 24px; } .t-tag { display: none; }  }
 @media (max-width: 480px) { .testimonials { padding: 60px 20px; } }
 </style>
