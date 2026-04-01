@@ -1,72 +1,58 @@
 <template>
-  <section class="bks" id="booking">
-    <!-- CTA banner -->
-    <div class="bks-banner">
-      <div class="section-wrap bks-banner-inner">
-        <div class="bks-banner-text">
-          <h2 class="reveal">Schedule a meeting to get started today.</h2>
-          <p class="reveal reveal-delay-1">Schedule a free consultation to discuss your project needs and goals. We'll walk through your vision and provide initial recommendations for bringing it to life.</p>
+  <section class="booking" id="booking">
+    <!-- Full-bleed CTA -->
+    <div class="booking-banner">
+      <div class="wrap banner-inner">
+        <div class="banner-left">
+          <span class="eyebrow reveal">Schedule a Call</span>
+          <h2 class="banner-title reveal reveal-delay-1">
+            Start your project<br/><em>today.</em>
+          </h2>
+          <p class="banner-sub reveal reveal-delay-2">Free 30-minute consultation. No commitment — just a clear, honest conversation about your project and how we can help.</p>
         </div>
-        <button class="bks-banner-btn reveal reveal-delay-2" @click="openCalendar" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-          Book a Meeting
-        </button>
+        <div class="banner-right reveal reveal-delay-2">
+          <button class="btn-banner" @click="openCal" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+            Book a Meeting
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 7H16M6 1V3.5M12 1V3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </button>
+          <p class="banner-note">Synced with Google Calendar · Instant confirmation</p>
+        </div>
       </div>
     </div>
 
-    <!-- Contact + details -->
-    <div class="section-wrap bks-body">
-      <div class="bks-left">
-        <span class="section-label reveal">Get In Touch</span>
-        <h3 class="bks-subtitle reveal reveal-delay-1">Project Discovery Call</h3>
-        <div class="bks-meta reveal reveal-delay-2">
-          <div class="bks-meta-row">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--gold)" stroke-width="1.2"/><path d="M8 4.5V8L10.5 10" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/></svg>
-            30 minutes · Free
-          </div>
-          <div class="bks-meta-row">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="12" rx="2" stroke="var(--gold)" stroke-width="1.2"/><path d="M4 1V3M12 1V3M1 6H15" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/></svg>
-            Google Meet video call
-          </div>
-          <div class="bks-meta-row">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--gold)" stroke-width="1.2"/><path d="M5 8C5 9.7 6.3 11 8 11" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/></svg>
-            Synced with Google Calendar
+    <!-- Contact details -->
+    <div class="booking-details">
+      <div class="wrap details-grid">
+        <div class="detail-col reveal">
+          <span class="eyebrow">What to Expect</span>
+          <ul class="expect-list">
+            <li v-for="f in features" :key="f">{{ f }}</li>
+          </ul>
+        </div>
+        <div class="detail-col reveal reveal-delay-1">
+          <span class="eyebrow">Session Details</span>
+          <div class="meta-items">
+            <div class="meta-item"><span class="meta-label">Duration</span><span>30 minutes</span></div>
+            <div class="meta-item"><span class="meta-label">Format</span><span>Google Meet video call</span></div>
+            <div class="meta-item"><span class="meta-label">Cost</span><span class="free-badge">Free</span></div>
           </div>
         </div>
-        <ul class="bks-list reveal reveal-delay-3">
-          <li v-for="f in features" :key="f">{{ f }}</li>
-        </ul>
-      </div>
-
-      <div class="bks-card reveal reveal-delay-2">
-        <img src="/cedar-logo.png" alt="Cedar Home Builder" class="bks-logo" />
-        <h4>Cedar Home Builder</h4>
-        <p>Remote Project Management Platform for diaspora Nigerians</p>
-        <ul class="bks-card-list">
-          <li>Platform walkthrough & live demo</li>
-          <li>Project vision & location discussed</li>
-          <li>Realistic cost estimate provided</li>
-          <li>Geo-tech process explained</li>
-        </ul>
-        <button class="bks-card-btn" @click="openCalendar" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M2 7H16M5 1V3.5M13 1V3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          Select a Date & Time
-        </button>
-        <p class="bks-gcal-note">Real-time availability · Instant confirmation</p>
-      </div>
-
-      <div class="bks-contacts reveal reveal-delay-3">
-        <h4>Other ways to reach us</h4>
-        <a href="mailto:hello@cedarhomebuilder.com" class="contact-row" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.1"/></svg>
-          hello@cedarhomebuilder.com
-        </a>
-        <a href="https://wa.me/2348100000000" class="contact-row" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8C1.5 9.1 1.8 10.1 2.3 11L1.5 14.5L5.1 13.7C6 14.2 7 14.5 8 14.5C11.6 14.5 14.5 11.6 14.5 8C14.5 4.4 11.6 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
-          WhatsApp us
-        </a>
-        <div class="contact-row no-link">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6C3 9.5 8 15 8 15S13 9.5 13 6C13 3.2 10.8 1 8 1Z" stroke="currentColor" stroke-width="1.1"/><circle cx="8" cy="6" r="2" stroke="currentColor" stroke-width="1.1"/></svg>
-          Lagos, Nigeria · London, UK
+        <div class="detail-col reveal reveal-delay-2">
+          <span class="eyebrow">Contact</span>
+          <div class="contacts">
+            <a href="mailto:hello@cedarhomebuilder.com" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="2.5" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M1 5L7.5 8.5L14 5" stroke="currentColor" stroke-width="1.1"/></svg>
+              hello@cedarhomebuilder.com
+            </a>
+            <a href="https://wa.me/2348100000000" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1C3.9 1 1 3.9 1 7.5C1 8.7 1.3 9.8 1.9 10.7L1 14L4.4 13.1C5.3 13.7 6.4 14 7.5 14C11.1 14 14 11.1 14 7.5C14 3.9 11.1 1 7.5 1Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              WhatsApp us
+            </a>
+            <div class="contact-loc">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1C5 1 3 3 3 5.5C3 8.5 7.5 14 7.5 14S12 8.5 12 5.5C12 3 10 1 7.5 1Z" stroke="currentColor" stroke-width="1.1"/><circle cx="7.5" cy="5.5" r="1.5" stroke="currentColor" stroke-width="1.1"/></svg>
+              Lagos, Nigeria · London, UK
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -74,55 +60,48 @@
 </template>
 <script setup>
 import { useReveal } from '../composables/useReveal.js'
-defineEmits(['hover', 'unhover'])
-useReveal('.bks .reveal')
-const features = ['100% free, no obligation', 'Speak with a senior project advisor', 'Live platform demonstration', 'Clear project roadmap provided']
-const openCalendar = () => { window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zpTqSehcwegH0km1LLZqKWuUFaMqzVfiKo0H5fpj2qoECms8vbq27a_9vp8oGA0FqRUybkiZQ?gv=true', '_blank') }
+defineEmits(['hover','unhover'])
+useReveal('.booking .reveal')
+const openCal = () => window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zpTqSehcwegH0km1LLZqKWuUFaMqzVfiKo0H5fpj2qoECms8vbq27a_9vp8oGA0FqRUybkiZQ?gv=true','_blank')
+const features = ['Speak with a senior project advisor','Live platform demonstration','Discuss your vision, location & budget','Receive a clear project roadmap','No obligation, completely free']
 </script>
 <style scoped>
-.bks { background: var(--white); }
+.booking { background: var(--ivory); }
 
 /* Banner */
-.bks-banner { background: var(--navy); padding: 80px 0; }
-.bks-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
-.bks-banner-text { max-width: 560px; }
-.bks-banner-text h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: white; line-height: 1.2; margin-bottom: 16px; }
-.bks-banner-text p { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.6); }
-.bks-banner-btn { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700; color: var(--navy); background: var(--gold); border: none; padding: 16px 36px; border-radius: 30px; white-space: nowrap; flex-shrink: 0; transition: background 0.3s, transform 0.2s var(--spring); }
-.bks-banner-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-/* Body */
-.bks-body { padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
-
-/* Left */
-.section-label { display: block; margin-bottom: 14px; }
-.bks-subtitle { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--navy); margin-bottom: 20px; }
-.bks-meta { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.bks-meta-row { display: flex; align-items: center; gap: 9px; font-size: 0.85rem; color: var(--muted); }
-.bks-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.bks-list li { font-size: 0.85rem; color: var(--muted); padding-left: 16px; position: relative; }
-.bks-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
-
-/* Card */
-.bks-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 10px; padding: 32px; display: flex; flex-direction: column; gap: 0; }
-.bks-logo { height: 40px; width: auto; object-fit: contain; margin-bottom: 14px; }
-.bks-card h4 { font-family: var(--font-ui); font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-.bks-card > p { font-size: 0.75rem; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
-.bks-card-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-.bks-card-list li { font-size: 0.82rem; color: var(--muted); padding-left: 14px; position: relative; }
-.bks-card-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 1px; background: var(--gold); }
-.bks-card-btn { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 18px; background: var(--navy); color: white; border: none; border-radius: 6px; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700; transition: background 0.3s, transform 0.2s var(--spring); margin-bottom: 10px; }
-.bks-card-btn:hover { background: var(--gold); transform: translateY(-1px); }
-.bks-gcal-note { font-size: 0.7rem; color: var(--muted); text-align: center; }
-
-/* Contacts */
-.bks-contacts h4 { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 18px; letter-spacing: 0.04em; }
-.contact-row { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 14px; transition: color 0.2s; }
-.contact-row:hover { color: var(--navy); }
-.contact-row.no-link { cursor: default; }
-
-@media (max-width: 960px) {
-  .bks-banner-inner { flex-direction: column; text-align: center; gap: 32px; }
-  .bks-body { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+.booking-banner { background: var(--ink); padding: 100px 0; }
+.banner-inner { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+.eyebrow { display: block; margin-bottom: 16px; }
+.banner-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; color: var(--ivory); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 20px; }
+.banner-title em { font-style: italic; color: var(--gold); }
+.banner-sub { font-size: 1rem; line-height: 1.75; color: rgba(245,239,224,0.55); max-width: 440px; }
+.banner-right { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.btn-banner {
+  display: flex; align-items: center; gap: 12px; white-space: nowrap;
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+  color: var(--ink); background: var(--gold); border: none;
+  padding: 18px 40px; border-radius: 4px;
+  transition: background .3s, transform .2s var(--ease-back);
 }
+.btn-banner:hover { background: var(--gold-light); transform: translateY(-2px); }
+.banner-note { font-family: var(--font-mono); font-size: 0.65rem; color: rgba(245,239,224,0.3); letter-spacing: 0.08em; text-align: center; }
+
+/* Details */
+.booking-details { padding: 80px 0; }
+.details-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; }
+.detail-col .eyebrow { margin-bottom: 28px; }
+.expect-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.expect-list li { font-size: 0.9rem; color: var(--muted); padding-left: 20px; position: relative; }
+.expect-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; font-weight: 700; }
+.meta-items { display: flex; flex-direction: column; gap: 14px; }
+.meta-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--ivory-dark); font-size: 0.88rem; }
+.meta-label { color: var(--muted); font-size: 0.82rem; }
+.meta-item span:last-child { color: var(--ink); font-weight: 600; }
+.free-badge { background: rgba(74,103,65,0.1); color: var(--sage) !important; font-weight: 700 !important; padding: 3px 12px; border-radius: 20px; border: 1px solid rgba(74,103,65,0.2); font-size: 0.78rem; }
+.contacts { display: flex; flex-direction: column; gap: 14px; }
+.contacts a, .contact-loc { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.contacts a:hover { color: var(--gold); }
+.contact-loc { color: var(--muted); }
+
+@media (max-width: 960px) { .banner-inner { grid-template-columns: 1fr; } .details-grid { grid-template-columns: 1fr; gap: 40px; } }
 </style>

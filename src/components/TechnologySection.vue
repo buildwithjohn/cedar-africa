@@ -1,26 +1,34 @@
 <template>
   <section class="tech" id="technology">
-    <div class="section-wrap">
-      <div class="tech-header">
-        <span class="section-label reveal">Core Technology</span>
-        <h2 class="tech-title reveal reveal-delay-1">
-          The technology that keeps you<br/><em>connected to your build.</em>
-        </h2>
+    <div class="wrap">
+      <div class="tech-intro">
+        <div class="tech-intro-left">
+          <div class="tech-number">02</div>
+          <span class="eyebrow reveal">Technology</span>
+          <h2 class="tech-title reveal reveal-delay-1">
+            The tech that keeps<br/><em>you connected</em><br/>to your build.
+          </h2>
+        </div>
         <p class="tech-sub reveal reveal-delay-2">
           Three powerful technology pillars give you unprecedented visibility and control over your property — from thousands of miles away.
         </p>
       </div>
-      <div class="tech-pillars">
-        <div class="pillar reveal" :class="'reveal-delay-' + (i+1)"
-          v-for="(p, i) in pillars" :key="p.title"
+
+      <div class="tech-cards">
+        <div class="tech-card reveal" :class="'reveal-delay-'+(i+1)"
+          v-for="(p,i) in pillars" :key="p.title"
+          :style="{'--card-accent': p.accent }"
           @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-          <div class="pillar-num">0{{ i+1 }}</div>
-          <div class="pillar-icon">{{ p.icon }}</div>
-          <h3>{{ p.title }}</h3>
-          <p>{{ p.desc }}</p>
-          <ul>
+          <div class="tc-top">
+            <div class="tc-num">0{{i+1}}</div>
+            <div class="tc-icon">{{ p.icon }}</div>
+          </div>
+          <h3 class="tc-title">{{ p.title }}</h3>
+          <p class="tc-desc">{{ p.desc }}</p>
+          <ul class="tc-list">
             <li v-for="f in p.features" :key="f">{{ f }}</li>
           </ul>
+          <div class="tc-glow"></div>
         </div>
       </div>
     </div>
@@ -28,31 +36,53 @@
 </template>
 <script setup>
 import { useReveal } from '../composables/useReveal.js'
-defineEmits(['hover', 'unhover'])
+defineEmits(['hover','unhover'])
 useReveal('.tech .reveal')
 const pillars = [
-  { icon: '🗺', title: 'Interactive Map Integration', desc: 'Every plot is pinned on a live interactive map with satellite imagery, GPS coordinates, and government land registry data.', features: ['Satellite + street-level hybrid', 'Government registry overlay', 'Plot boundary visualisation', 'Neighbourhood development view'] },
-  { icon: '📍', title: 'Geo-Referencing & Geolocation', desc: 'We survey every plot using precision GPS — anchoring all data to real-world coordinates with sub-metre accuracy.', features: ['Sub-metre GPS accuracy', 'Government survey cross-reference', 'Real-time live location feed', 'Coordinate-stamped photos'] },
-  { icon: '🛸', title: 'Drone Footage & Aerial Surveys', desc: 'Scheduled aerial surveys over every active site. Monthly 4K video walkthroughs and geo-tagged photos delivered to your dashboard.', features: ['Monthly 4K aerial video', 'Geo-tagged progress photos', 'Month-on-month overlays', 'Shareable client portal'] },
+  { icon:'🗺', title:'Interactive Map Integration', accent:'#C9A04A',
+    desc:'Every plot pinned on a live map with satellite imagery, GPS coordinates, and government land registry data.',
+    features:['Satellite + street hybrid','Government registry overlay','Plot boundary mapping','Neighbourhood development view'] },
+  { icon:'📍', title:'Geo-Referencing & Geolocation', accent:'#C8551A',
+    desc:'Precision GPS geo-referencing anchors all survey data to real-world coordinates with sub-metre accuracy.',
+    features:['Sub-metre GPS accuracy','Government survey cross-ref','Real-time location feed','Coordinate-stamped photos'] },
+  { icon:'🛸', title:'Drone Footage & Aerial Surveys', accent:'#4A6741',
+    desc:'Scheduled aerial surveys deliver 4K video walkthroughs and geo-tagged photos to your dashboard monthly.',
+    features:['Monthly 4K aerial video','Geo-tagged site photos','Month-on-month overlays','Shareable client portal'] },
 ]
 </script>
 <style scoped>
-.tech { padding: 100px 0; background: var(--white); }
-.tech-header { max-width: 640px; margin-bottom: 64px; }
-.section-label { display: block; margin-bottom: 16px; }
-.tech-title { font-family: var(--font-display); font-size: clamp(2rem, 3.2vw, 3.2rem); font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 18px; }
+.tech { padding: 120px 0; background: var(--ivory); position: relative; }
+.tech-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+.tech-intro-left { position: relative; }
+.tech-number { font-family: var(--font-display); font-size: 8rem; font-weight: 900; color: rgba(26,21,18,0.06); line-height: 1; margin-bottom: -20px; letter-spacing: -0.04em; }
+.eyebrow { display: block; margin-bottom: 18px; }
+.tech-title { font-family: var(--font-display); font-size: clamp(2rem, 3.2vw, 3.2rem); font-weight: 800; line-height: 1.12; color: var(--ink); letter-spacing: -0.02em; }
 .tech-title em { font-style: italic; color: var(--gold); }
-.tech-sub { font-size: 0.95rem; line-height: 1.75; color: var(--muted); }
-.tech-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border: 1px solid var(--border); }
-.pillar { padding: 40px 36px; background: var(--white); border-right: 1px solid var(--border); transition: background 0.3s; position: relative; }
-.pillar:last-child { border-right: none; }
-.pillar:hover { background: var(--off-white); }
-.pillar-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--light-mid); position: absolute; top: 20px; right: 24px; line-height: 1; }
-.pillar-icon { font-size: 2rem; margin-bottom: 20px; }
-.pillar h3 { font-family: var(--font-ui); font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-.pillar p { font-size: 0.85rem; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
-.pillar ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-.pillar li { font-size: 0.78rem; color: var(--muted); padding-left: 14px; position: relative; }
-.pillar li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 1px; background: var(--gold); }
-@media (max-width: 960px) { .tech-pillars { grid-template-columns: 1fr; } .pillar { border-right: none; border-bottom: 1px solid var(--border); } .pillar:last-child { border-bottom: none; } }
+.tech-sub { font-size: 1rem; line-height: 1.8; color: var(--muted); align-self: end; }
+
+.tech-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--ivory-dark); border: 1px solid var(--ivory-dark); }
+.tech-card {
+  background: var(--ivory);
+  padding: 44px 36px;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+}
+.tech-card:hover { background: var(--white); }
+.tech-card:hover .tc-glow { opacity: 1; }
+.tc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.tc-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 900; color: var(--card-accent); opacity: 0.2; line-height: 1; }
+.tc-icon { font-size: 2.2rem; }
+.tc-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--ink); margin-bottom: 14px; line-height: 1.2; letter-spacing: -0.01em; }
+.tc-desc { font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 22px; }
+.tc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tc-list li { font-size: 0.8rem; color: var(--muted); padding-left: 16px; position: relative; }
+.tc-list li::before { content:''; position:absolute; left:0; top:8px; width:6px; height:1.5px; background:var(--card-accent); }
+.tc-glow {
+  position: absolute; bottom: -60px; right: -60px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: var(--card-accent); filter: blur(60px);
+  opacity: 0; transition: opacity .4s;
+}
+
+@media (max-width: 960px) { .tech-intro { grid-template-columns: 1fr; gap: 24px; } .tech-cards { grid-template-columns: 1fr; } }
 </style>
