@@ -56,7 +56,7 @@ const values = [
   content: 'CEDAR';
   position: absolute; top: -40px; right: -20px;
   font-family: var(--font-display); font-size: 22vw; font-weight: 900;
-  color: rgba(245,239,224,0.03); line-height: 1; pointer-events: none; letter-spacing: -0.04em;
+  color: rgba(248,249,251,0.03); line-height: 1; pointer-events: none; letter-spacing: -0.04em;
 }
 
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 80px; }
@@ -71,13 +71,13 @@ const values = [
 .about-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.2vw, 3.2rem);
-  font-weight: 800; line-height: 1.12; color: var(--ivory);
+  font-weight: 800; line-height: 1.12; color: #F0F5FF;
   margin-bottom: 28px; letter-spacing: -0.02em;
 }
 .about-title em { font-style: italic; color: var(--gold); }
 .divider { width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; }
 .about-body { display: flex; flex-direction: column; gap: 14px; }
-.about-body p { font-size: 0.95rem; line-height: 1.8; color: rgba(245,239,224,0.6); }
+.about-body p { font-size: 0.95rem; line-height: 1.8; color: rgba(200,215,235,0.7); }
 .about-body strong { color: var(--gold-light); font-weight: 600; }
 
 .about-img-wrap { position: relative; border-radius: 2px; overflow: hidden; }
@@ -93,8 +93,8 @@ const values = [
 /* Values strip */
 .values-strip {
   display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 1px; background: rgba(245,239,224,0.08);
-  border: 1px solid rgba(245,239,224,0.08);
+  gap: 1px; background: rgba(248,249,251,0.08);
+  border: 1px solid rgba(248,249,251,0.08);
 }
 .value-item {
   padding: 36px 28px; background: var(--ink);
@@ -102,8 +102,8 @@ const values = [
 }
 .value-item:hover { background: var(--ink-mid); }
 .value-icon { font-size: 1.8rem; margin-bottom: 14px; }
-.value-item strong { display: block; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: var(--ivory); margin-bottom: 8px; }
-.value-item p { font-size: 0.82rem; line-height: 1.6; color: rgba(245,239,224,0.5); }
+.value-item strong { display: block; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #F0F5FF; margin-bottom: 8px; }
+.value-item p { font-size: 0.82rem; line-height: 1.6; color: rgba(200,215,235,0.6); }
 
 @media (max-width: 960px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } .values-strip { grid-template-columns: 1fr 1fr; } .about-img-wrap img { height: 320px; } }
 @media (max-width: 600px) { .about { padding: 80px 0; } .values-strip { grid-template-columns: 1fr; } }
