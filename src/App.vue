@@ -5,25 +5,18 @@
 
     <div class="loader" :class="{ loaded: pageLoaded }">
       <div class="loader-inner">
-        <svg width="44" height="44" viewBox="0 0 32 32" fill="none">
-          <path d="M16 2L4 10V28H28V10L16 2Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
-          <path d="M10 28V18H22V28" stroke="#C9A84C" stroke-width="1.5"/>
-          <path d="M16 10L10 14V20H22V14L16 10Z" fill="#C9A84C" opacity="0.3"/>
-        </svg>
-        <span class="loader-wordmark">Cedar Home Builder</span>
+        <img src="/cedar-logo.png" alt="Cedar Home Builder" class="loader-logo" />
         <div class="loader-bar"><div class="loader-progress" :style="{ width: loadProgress + '%' }"></div></div>
-        <span class="loader-sub">Initialising map platform...</span>
       </div>
     </div>
 
     <NavBar            @hover="isHovering=true" @unhover="isHovering=false" />
     <HeroSection       @hover="isHovering=true" @unhover="isHovering=false" />
-    <TechnologySection @hover="isHovering=true" @unhover="isHovering=false" />
-
     <AboutSection />
+    <TechnologySection @hover="isHovering=true" @unhover="isHovering=false" />
     <ServicesSection   @hover="isHovering=true" @unhover="isHovering=false" />
     <ProcessSection    @hover="isHovering=true" @unhover="isHovering=false" />
-    <TestimonialsSection @hover="isHovering=true" @unhover="isHovering=false" />
+    <TestimonialsSection />
     <BookingSection    @hover="isHovering=true" @unhover="isHovering=false" />
     <FooterSection     @hover="isHovering=true" @unhover="isHovering=false" />
   </div>
@@ -33,8 +26,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar             from './components/NavBar.vue'
 import HeroSection        from './components/HeroSection.vue'
-import TechnologySection  from './components/TechnologySection.vue'
 import AboutSection       from './components/AboutSection.vue'
+import TechnologySection  from './components/TechnologySection.vue'
 import ServicesSection    from './components/ServicesSection.vue'
 import ProcessSection     from './components/ProcessSection.vue'
 import TestimonialsSection from './components/TestimonialsSection.vue'
@@ -62,7 +55,6 @@ const animateFollower = () => {
   }
   rafId = requestAnimationFrame(animateFollower)
 }
-
 const onMouseMove = (e) => {
   targetX = e.clientX; targetY = e.clientY
   if (cursorEl.value) {
@@ -74,17 +66,16 @@ const onMouseMove = (e) => {
     if (!rafId) rafId = requestAnimationFrame(animateFollower)
   }
 }
-
 onMounted(() => {
   let prog = 0
-  const interval = setInterval(() => {
-    prog += Math.random() * 14
+  const iv = setInterval(() => {
+    prog += Math.random() * 15
     loadProgress.value = Math.min(prog, 95)
     if (prog >= 95) {
-      clearInterval(interval)
-      setTimeout(() => { loadProgress.value = 100; setTimeout(() => { pageLoaded.value = true }, 500) }, 200)
+      clearInterval(iv)
+      setTimeout(() => { loadProgress.value = 100; setTimeout(() => { pageLoaded.value = true }, 400) }, 200)
     }
-  }, 80)
+  }, 70)
   if (window.matchMedia('(pointer: fine)').matches) {
     window.addEventListener('mousemove', onMouseMove, { passive: true })
   }
@@ -96,13 +87,11 @@ onUnmounted(() => {
 </script>
 
 <style>
-.loader { position: fixed; inset: 0; background: var(--navy-deep); display: flex; align-items: center; justify-content: center; z-index: 99997; transition: opacity 0.6s, visibility 0.6s; }
+.loader { position: fixed; inset: 0; background: #fff; display: flex; align-items: center; justify-content: center; z-index: 99997; transition: opacity 0.5s ease, visibility 0.5s; }
 .loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.loader-inner svg { animation: loaderPulse 1.4s ease-in-out infinite; }
-@keyframes loaderPulse { 0%,100% { opacity:0.5; transform:scale(0.94); } 50% { opacity:1; transform:scale(1.04); } }
-.loader-wordmark { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--cream); letter-spacing: 0.08em; }
-.loader-bar { width: 180px; height: 1px; background: rgba(240,244,255,0.08); overflow: hidden; }
-.loader-progress { height: 100%; background: linear-gradient(90deg, var(--gold), var(--tech-blue)); transition: width 0.25s; }
-.loader-sub { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(240,244,255,0.22); }
+.loader-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.loader-logo { height: 60px; width: auto; animation: logoPulse 1.4s ease-in-out infinite; }
+@keyframes logoPulse { 0%,100% { opacity:0.5; transform:scale(0.96); } 50% { opacity:1; transform:scale(1); } }
+.loader-bar { width: 160px; height: 2px; background: #E8E4DC; border-radius: 2px; overflow: hidden; }
+.loader-progress { height: 100%; background: var(--gold); transition: width 0.2s ease; border-radius: 2px; }
 </style>
