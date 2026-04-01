@@ -19,7 +19,7 @@
     <NavBar            @hover="isHovering=true" @unhover="isHovering=false" />
     <HeroSection       @hover="isHovering=true" @unhover="isHovering=false" />
     <TechnologySection @hover="isHovering=true" @unhover="isHovering=false" />
-    <MapPlatformSection @hover="isHovering=true" @unhover="isHovering=false" />
+
     <AboutSection />
     <ServicesSection   @hover="isHovering=true" @unhover="isHovering=false" />
     <ProcessSection    @hover="isHovering=true" @unhover="isHovering=false" />
@@ -34,7 +34,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar             from './components/NavBar.vue'
 import HeroSection        from './components/HeroSection.vue'
 import TechnologySection  from './components/TechnologySection.vue'
-import MapPlatformSection from './components/MapPlatformSection.vue'
 import AboutSection       from './components/AboutSection.vue'
 import ServicesSection    from './components/ServicesSection.vue'
 import ProcessSection     from './components/ProcessSection.vue'
