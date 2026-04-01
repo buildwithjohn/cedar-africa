@@ -43,7 +43,6 @@ const menuOpen   = ref(false)
 const links = [
   { id: 'platform',     label: 'Platform' },
   { id: 'technology',   label: 'Technology' },
-  { id: 'map-platform', label: 'Live Map' },
   { id: 'services',     label: 'Services' },
   { id: 'process',      label: 'How It Works' },
   { id: 'testimonials', label: 'Stories' },

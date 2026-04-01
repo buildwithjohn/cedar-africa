@@ -36,13 +36,6 @@
           Book a free project call
         </button>
       </div>
-
-      <div class="hero-stats reveal reveal-delay-5">
-        <div class="hero-stat" v-for="s in stats" :key="s.label">
-          <span class="stat-num">{{ s.num }}</span>
-          <span class="stat-label">{{ s.label }}</span>
-        </div>
-      </div>
     </div>
 
     <div class="scroll-cue">
@@ -56,12 +49,6 @@
 import { onMounted } from 'vue'
 defineEmits(['hover', 'unhover'])
 
-const stats = [
-  { num: '200+', label: 'Projects managed' },
-  { num: '±0.3m', label: 'GPS accuracy' },
-  { num: '6', label: 'Countries served' },
-  { num: '14mo', label: 'Avg. completion' },
-]
 
 const openCalendar = () => {
   window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zpTqSehcwegH0km1LLZqKWuUFaMqzVfiKo0H5fpj2qoECms8vbq27a_9vp8oGA0FqRUybkiZQ?gv=true', '_blank')
@@ -98,24 +85,24 @@ onMounted(() => {
 .hero-sub { font-size: 1.05rem; line-height: 1.8; color: rgba(240,244,255,0.6); max-width: 660px; margin-bottom: 44px; }
 .hero-sub strong { color: var(--gold-light); font-weight: 500; }
 
-.hero-actions { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+.hero-actions { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 0; }
 .btn-primary { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--navy-deep); background: var(--gold); padding: 16px 32px; transition: background 0.3s, transform 0.3s var(--spring), box-shadow 0.3s; }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(201,168,76,0.3); }
 .btn-ghost { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600; background: none; border: 1px solid rgba(240,244,255,0.2); color: rgba(240,244,255,0.6); padding: 15px 28px; transition: border-color 0.3s, color 0.3s, background 0.3s; }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.06); }
 
-.hero-stats { display: flex; gap: 0; border: 1px solid rgba(91,164,245,0.12); background: rgba(91,164,245,0.04); width: 100%; max-width: 580px; }
-.hero-stat { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 22px 16px; border-right: 1px solid rgba(91,164,245,0.12); transition: background 0.2s; }
+
+
 .hero-stat:last-child { border-right: none; }
 .hero-stat:hover { background: rgba(91,164,245,0.06); }
-.stat-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; color: var(--gold); line-height: 1; }
-.stat-label { font-family: var(--font-ui); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,244,255,0.3); text-align: center; }
+
+
 
 .scroll-cue { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; }
 .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100% { opacity:0.3; } 50% { opacity:1; } }
 .scroll-cue span { font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,244,255,0.25); writing-mode: vertical-rl; }
 
-@media (max-width: 768px) { .hero { padding: 100px 24px 80px; } .hero-title { font-size: clamp(2.2rem, 8vw, 3.2rem); } .hero-sub { font-size: 0.95rem; } .hero-stats { max-width: 100%; } .stat-num { font-size: 1.5rem; } .scroll-cue { display: none; } }
-@media (max-width: 480px) { .hero-badges { gap: 7px; } .tech-badge { font-size: 0.58rem; padding: 5px 10px; } .hero-stats { flex-wrap: wrap; } .hero-stat { flex: 1 1 45%; border-bottom: 1px solid rgba(91,164,245,0.12); } }
+@media (max-width: 768px) { .hero { padding: 100px 24px 80px; } .hero-title { font-size: clamp(2.2rem, 8vw, 3.2rem); } .hero-sub { font-size: 0.95rem; }   .scroll-cue { display: none; } }
+@media (max-width: 480px) { .hero-badges { gap: 7px; } .tech-badge { font-size: 0.58rem; padding: 5px 10px; }   }
 </style>
