@@ -85,10 +85,10 @@ onMounted(() => {
   position: absolute; inset: 0;
   background:
     linear-gradient(105deg,
-      rgba(26,21,18,0.88) 0%,
-      rgba(26,21,18,0.72) 35%,
-      rgba(26,21,18,0.35) 60%,
-      rgba(26,21,18,0.08) 100%
+      rgba(11,22,35,0.92) 0%,
+      rgba(11,22,35,0.75) 38%,
+      rgba(11,22,35,0.35) 62%,
+      rgba(11,22,35,0.06) 100%
     );
 }
 

@@ -1,20 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  --ink:        #1A1512;
-  --ink-mid:    #2C2520;
-  --ink-light:  #3D3530;
-  --ivory:      #F5EFE0;
-  --ivory-dark: #EDE5D0;
-  --ivory-mid:  #E2D9C5;
+  /* Midnight navy — the logo's DNA */
+  --ink:        #0B1623;
+  --ink-mid:    #122033;
+  --ink-light:  #1B3050;
+
+  /* Off-white — crisp, not sterile */
+  --ivory:      #F8F9FB;
+  --ivory-dark: #EEF1F6;
+  --ivory-mid:  #E2E8F0;
+
+  /* Gold — premium accent */
   --gold:       #C9A04A;
-  --gold-light: #DEBB72;
-  --gold-dim:   rgba(201,160,74,0.15);
-  --terra:      #C8551A;
-  --terra-dim:  rgba(200,85,26,0.12);
-  --sage:       #4A6741;
-  --white:      #FDFAF5;
-  --muted:      #8A7E72;
+  --gold-light: #DDB96A;
+  --gold-dim:   rgba(201,160,74,0.14);
+
+  /* Electric blue — tech highlights */
+  --blue:       #2A6EBF;
+  --blue-light: #4A8FE0;
+  --blue-dim:   rgba(42,110,191,0.1);
+
+  /* Utility */
+  --white:      #FFFFFF;
+  --muted:      #6B7E99;
+  --sage:       #2D7A4F;   /* kept for free/success badge */
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'Outfit', sans-serif;

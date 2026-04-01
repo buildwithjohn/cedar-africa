@@ -62,7 +62,7 @@ onUnmounted(() => { window.removeEventListener('mousemove',onMove); if(rafId) ca
 </script>
 
 <style>
-.loader { position:fixed; inset:0; background:var(--ivory); display:flex; align-items:center; justify-content:center; z-index:99997; transition:opacity .5s, visibility .5s; }
+.loader { position:fixed; inset:0; background: var(--white); display:flex; align-items:center; justify-content:center; z-index:99997; transition:opacity .5s, visibility .5s; }
 .loader.loaded { opacity:0; visibility:hidden; pointer-events:none; }
 .loader-inner { display:flex; flex-direction:column; align-items:center; gap:28px; }
 .loader-logo { height:64px; width:auto; animation:logoPulse 1.5s ease-in-out infinite; }

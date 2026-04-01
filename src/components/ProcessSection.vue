@@ -59,7 +59,7 @@ const steps = [
 .btn-cta {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--font-body); font-size: 0.92rem; font-weight: 700;
-  color: var(--ivory); background: var(--ink); border: none;
+  color: #F0F5FF; background: var(--ink); border: none;
   padding: 18px 44px; border-radius: 4px;
   transition: background .3s, transform .2s var(--ease-back), box-shadow .3s;
 }
