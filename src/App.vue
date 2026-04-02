@@ -5,7 +5,7 @@
 
     <div class="loader" :class="{ loaded: pageLoaded }">
       <div class="loader-inner">
-        <img src="/cedar-logo.png" alt="Cedar Home Builder" class="loader-logo" />
+        <img src="/cedar-logo-transparent.png" alt="Cedar Home Builder" class="loader-logo" />
         <div class="loader-bar"><div class="loader-fill" :style="{ width: loadProgress + '%' }"></div></div>
       </div>
     </div>

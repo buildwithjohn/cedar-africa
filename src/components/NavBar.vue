@@ -2,7 +2,7 @@
   <nav :class="['navbar', { scrolled: isScrolled, open: menuOpen }]">
     <div class="nav-wrap">
       <a href="#" class="logo" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')">
-        <img src="/cedar-logo.png" alt="Cedar Home Builder" />
+        <img src="/cedar-logo-transparent.png" alt="Cedar Home Builder" />
       </a>
 
       <ul class="links">

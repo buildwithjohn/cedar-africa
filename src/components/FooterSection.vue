@@ -3,7 +3,7 @@
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="/cedar-logo.png" alt="Cedar Home Builder" class="footer-logo" />
+          <img src="/cedar-logo-transparent.png" alt="Cedar Home Builder" class="footer-logo" />
           <p>Remote project management platform for diaspora Nigerians building homes back home — geo-technology, drone monitoring, dedicated team on the ground.</p>
           <div class="socials">
             <a v-for="s in socials" :key="s.name" :href="s.href" :title="s.name" @mouseenter="$emit('hover')" @mouseleave="$emit('unhover')" v-html="s.icon"></a>
