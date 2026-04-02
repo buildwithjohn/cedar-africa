@@ -50,13 +50,13 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <style scoped>
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 16px 0;
+  padding: 10px 0;
   background: #FFFFFF;
   box-shadow: 0 1px 0 var(--ivory-mid), 0 2px 16px rgba(11,22,35,0.06);
   transition: padding .3s var(--ease-expo), box-shadow .3s;
 }
 .navbar.scrolled {
-  padding: 10px 0;
+  padding: 6px 0;
   box-shadow: 0 1px 0 var(--ivory-mid), 0 4px 24px rgba(11,22,35,0.1);
 }
 .nav-wrap {
@@ -64,7 +64,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: flex; align-items: center; gap: 48px;
 }
 .logo { flex-shrink: 0; text-decoration: none; }
-.logo img { height: 44px; width: auto; }
+.logo img { height: 72px; width: auto; }
 .links { display: flex; gap: 36px; list-style: none; margin-left: auto; }
 .links a {
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
@@ -108,5 +108,5 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .mobile-nav button { font-weight: 700; color: var(--gold); }
 
 @media (max-width: 960px) { .links, .nav-right { display: none; } .burger { display: flex; } .mobile-nav { display: flex; } }
-@media (max-width: 600px) { .nav-wrap { padding: 0 20px; } .logo img { height: 36px; } }
+@media (max-width: 600px) { .nav-wrap { padding: 0 20px; } .logo img { height: 56px; } }
 </style>
