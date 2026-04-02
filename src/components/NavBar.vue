@@ -50,14 +50,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <style scoped>
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 20px 0;
-  transition: all .35s var(--ease-expo);
+  padding: 16px 0;
+  background: #FFFFFF;
+  box-shadow: 0 1px 0 var(--ivory-mid), 0 2px 16px rgba(11,22,35,0.06);
+  transition: padding .3s var(--ease-expo), box-shadow .3s;
 }
 .navbar.scrolled {
-  background: rgba(245,239,224,0.96);
-  backdrop-filter: blur(20px);
-  padding: 12px 0;
-  box-shadow: 0 1px 0 var(--ivory-dark), 0 4px 24px rgba(26,21,18,0.06);
+  padding: 10px 0;
+  box-shadow: 0 1px 0 var(--ivory-mid), 0 4px 24px rgba(11,22,35,0.1);
 }
 .nav-wrap {
   max-width: 1280px; margin: 0 auto; padding: 0 64px;
