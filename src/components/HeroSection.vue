@@ -99,7 +99,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 140px 64px 60px;
+  padding: 100px 64px 60px;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
